@@ -13,6 +13,13 @@ lógica** (no se validan campos, no se guardan datos, no hay backend).
 
 ---
 
+## Descargar el APK
+
+**[⬇ Descargar kronos.apk](https://github.com/Botero56/kronos_app/raw/main/apk/kronos.apk)**
+
+En el teléfono: abrir el archivo descargado y permitir "Instalar apps desconocidas" cuando lo pida.
+Es una versión de prueba (firmada con la llave de depuración), no la de la Play Store.
+
 ## Cómo ejecutarlo
 
 1. Abrir la carpeta en **Android Studio** y esperar el *Gradle Sync*.
