@@ -152,15 +152,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /** Pestañas de método (rostro/huella, patrón/huella): solo cambian lo que se ve. */
+    /** Dos opciones donde solo una queda marcada (rostro/huella, patrón/huella, sedes).
+     *  Si la pantalla tiene area_a / area_b, también cambia cuál se muestra. */
     private fun setupTabs() {
         val tabA = findViewById<View?>(v.tab_a) ?: return
         val tabB = findViewById<View>(v.tab_b)
         val pick = { first: Boolean ->
             tabA.isSelected = first
             tabB.isSelected = !first
-            findViewById<View>(v.area_a).isVisible = first
-            findViewById<View>(v.area_b).isVisible = !first
+            findViewById<View?>(v.area_a)?.isVisible = first
+            findViewById<View?>(v.area_b)?.isVisible = !first
         }
         tabA.setOnClickListener { pick(true) }
         tabB.setOnClickListener { pick(false) }

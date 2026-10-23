@@ -16,11 +16,13 @@
             android:layout_marginTop="6dp"
             android:text="Perteneces a más de una ubicación." />
 
+        <!-- tab_a / tab_b: MainActivity marca la sede tocada -->
         <LinearLayout
+            android:id="@+id/tab_a"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/bg_sede_selected"
+            android:background="@drawable/bg_sede_choice"
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:paddingHorizontal="20dp">
@@ -37,10 +39,11 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/tab_b"
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_marginTop="12dp"
-            android:background="@drawable/bg_sede"
+            android:background="@drawable/bg_sede_choice"
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:paddingHorizontal="20dp">
