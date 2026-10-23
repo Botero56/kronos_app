@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 21. Lista de empleados -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        style="@style/Screen"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout style="@style/Content">
+
+            <TextView
+                style="@style/Txt.Title"
+                android:layout_marginTop="8dp"
+                android:text="Empleados" />
+
+            <EditText
+                style="@style/Field"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:hint="Buscar empleado..." />
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Txt.Avatar" android:text="JP" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Juan Pérez" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="Operario · Sede Bello" android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Txt.Avatar" android:text="ML" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="María López" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="Supervisora · Sede Bello" android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Txt.Avatar" android:text="CR" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Carlos Rúa" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="Operario · Sede Medellín" android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Txt.Avatar" android:text="AT" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Ana Torres" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="Operaria · Sede Bello" android:textSize="11sp" />
+                </LinearLayout>
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <Button
+                android:id="@+id/add"
+                style="@style/Btn.Primary"
+                android:layout_marginTop="20dp"
+                android:text="+ Agregar empleado" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/part_admin_bar" />
+</LinearLayout>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 31. Mi resumen semanal -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Mi resumen" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="6dp"
+            android:text="1 – 7 de septiembre" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/Card"
+                android:layout_width="0dp"
+                android:layout_weight="1">
+
+                <TextView style="@style/Txt.Sub" android:text="Horas trabajadas" android:textSize="12sp" />
+                <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="38h 20m" android:textSize="22sp" />
+            </LinearLayout>
+
+            <Space android:layout_width="12dp" android:layout_height="0dp" />
+
+            <LinearLayout
+                style="@style/Card"
+                android:layout_width="0dp"
+                android:layout_weight="1">
+
+                <TextView style="@style/Txt.Sub" android:text="Puntualidad" android:textSize="12sp" />
+                <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="94%" android:textColor="@color/ok" android:textSize="22sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                style="@style/Card"
+                android:layout_width="0dp"
+                android:layout_weight="1">
+
+                <TextView style="@style/Txt.Sub" android:text="Retrasos" android:textSize="12sp" />
+                <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="1" android:textColor="@color/warn" android:textSize="22sp" />
+            </LinearLayout>
+
+            <Space android:layout_width="12dp" android:layout_height="0dp" />
+
+            <LinearLayout
+                style="@style/Card"
+                android:layout_width="0dp"
+                android:layout_weight="1">
+
+                <TextView style="@style/Txt.Sub" android:text="Ausencias" android:textSize="12sp" />
+                <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="0" android:textSize="22sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Card"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:text="Comparado con la semana anterior"
+                android:textSize="12sp" />
+
+            <TextView
+                style="@style/Txt"
+                android:layout_marginTop="6dp"
+                android:text="+4% más puntual que la semana pasada"
+                android:textColor="@color/ok" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

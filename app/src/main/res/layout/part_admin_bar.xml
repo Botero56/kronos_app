@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Barra inferior de las pantallas principales del administrador.
+     MainActivity resalta el ítem de la pantalla actual. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View style="@style/Divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/nav_dashboard"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_home"
+            android:text="Inicio" />
+
+        <TextView
+            android:id="@+id/nav_employees"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_people"
+            android:text="Empleados" />
+
+        <TextView
+            android:id="@+id/nav_requests"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_mail"
+            android:text="Solicitudes" />
+
+        <TextView
+            android:id="@+id/nav_history"
+            style="@style/NavItem"
+            android:drawableTop="@drawable/ic_calendar"
+            android:text="Historial" />
+    </LinearLayout>
+</LinearLayout>

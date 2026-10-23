@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 17. Marcaje fuera de rango -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Badge"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/bad_bg"
+            android:text="!"
+            android:textColor="@color/bad"
+            android:textSize="22sp" />
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="Estás fuera del área autorizada"
+            android:textSize="17sp" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Te encuentras a 320 m de la Sede Bello. Acércate al lugar de trabajo para poder marcar." />
+
+        <TextView
+            style="@style/Txt.Small"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center"
+            android:text="[ mapa ]" />
+
+        <Button
+            android:id="@+id/retry"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="20dp"
+            android:text="Reintentar ubicación" />
+
+        <Button
+            android:id="@+id/cancel"
+            style="@style/Btn.Secondary"
+            android:layout_marginTop="12dp"
+            android:text="Cancelar" />
+    </LinearLayout>
+</ScrollView>

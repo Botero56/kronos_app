@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 13. Sin conexión -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout
+        style="@style/Content"
+        android:paddingTop="265dp">
+
+        <TextView
+            style="@style/Txt.Badge"
+            android:backgroundTint="@color/warn_bg"
+            android:text="Sin wifi"
+            android:textColor="@color/warn" />
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Sin conexión"
+            android:textSize="17sp" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Tus registros se guardan en el dispositivo y se sincronizan al recuperar internet." />
+
+        <LinearLayout
+            style="@style/Card"
+            android:layout_marginTop="24dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:text="Registros pendientes por sincronizar" />
+
+            <TextView
+                style="@style/Txt.Medium"
+                android:text="3"
+                android:textSize="22sp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

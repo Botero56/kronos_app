@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 32. Mis solicitudes de permiso -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:layout_marginBottom="12dp"
+            android:text="Mis solicitudes" />
+
+        <LinearLayout
+            android:id="@+id/r1"
+            style="@style/Row"
+            android:background="?attr/selectableItemBackground">
+            <LinearLayout style="@style/Col">
+                <TextView style="@style/Txt" android:text="Cita médica" android:textSize="13sp" />
+                <TextView style="@style/Txt.Small" android:text="12 sep 2026" android:textSize="11sp" />
+            </LinearLayout>
+            <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout
+            android:id="@+id/r2"
+            style="@style/Row"
+            android:background="?attr/selectableItemBackground">
+            <LinearLayout style="@style/Col">
+                <TextView style="@style/Txt" android:text="Vacaciones" android:textSize="13sp" />
+                <TextView style="@style/Txt.Small" android:text="20 – 25 ago 2026" android:textSize="11sp" />
+            </LinearLayout>
+            <TextView style="@style/Txt" android:text="Aprobado" android:textColor="@color/ok" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout
+            android:id="@+id/r3"
+            style="@style/Row"
+            android:background="?attr/selectableItemBackground">
+            <LinearLayout style="@style/Col">
+                <TextView style="@style/Txt" android:text="Diligencia personal" android:textSize="13sp" />
+                <TextView style="@style/Txt.Small" android:text="3 ago 2026" android:textSize="11sp" />
+            </LinearLayout>
+            <TextView style="@style/Txt" android:text="Rechazado" android:textColor="@color/bad" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <Button
+            android:id="@+id/new_request"
+            style="@style/Btn.Secondary"
+            android:layout_marginTop="20dp"
+            android:text="+ Nueva solicitud" />
+    </LinearLayout>
+</ScrollView>

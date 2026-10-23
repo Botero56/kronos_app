@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 23. Historial de asistencia admin -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        style="@style/Screen"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout style="@style/Content">
+
+            <TextView
+                style="@style/Txt.Title"
+                android:layout_marginTop="8dp"
+                android:text="Historial de asistencia" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <TextView style="@style/Txt.Pill" android:text="Hoy" />
+                <TextView style="@style/Txt.Pill" android:layout_marginStart="8dp" android:text="Sede Bello" />
+                <TextView style="@style/Txt.Pill" android:layout_marginStart="8dp" android:text="Todos" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Row">
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Juan Pérez" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="08:01 – 17:00" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="A tiempo" android:textColor="@color/ok" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout style="@style/Row">
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="María López" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="08:22 – 17:10" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="Tarde" android:textColor="@color/warn" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/absent"
+                style="@style/Row"
+                android:background="?attr/selectableItemBackground">
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Carlos Rúa" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="—" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="Ausente" android:textColor="@color/bad" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout style="@style/Row">
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Ana Torres" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="07:58 – 17:02" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="A tiempo" android:textColor="@color/ok" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/part_admin_bar" />
+</LinearLayout>

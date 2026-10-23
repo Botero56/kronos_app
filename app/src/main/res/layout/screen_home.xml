@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 14. Home del empleado -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/notifications"
+                style="@style/IconBtn"
+                android:layout_marginStart="-8dp"
+                android:contentDescription="Notificaciones"
+                android:src="@drawable/ic_bell" />
+
+            <ImageButton
+                android:id="@+id/settings"
+                style="@style/IconBtn"
+                android:layout_gravity="end"
+                android:layout_marginEnd="-6dp"
+                android:contentDescription="Ajustes"
+                android:src="@drawable/ic_settings" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:text="Lunes, 7 de septiembre"
+                android:textColor="@color/hint" />
+
+            <TextView
+                style="@style/Txt.Medium"
+                android:layout_marginTop="4dp"
+                android:text="Hola, Camila"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/bg_card_big"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="22dp"
+            android:paddingBottom="13dp">
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:layout_gravity="center_horizontal"
+                android:text="Estás fuera de turno" />
+
+            <Button
+                android:id="@+id/check_in"
+                style="@style/Btn.Secondary"
+                android:layout_marginTop="10dp"
+                android:text="Marcar entrada"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/check_out"
+                style="@style/Btn.Secondary"
+                android:layout_marginTop="24dp"
+                android:text="Marcar salida"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/location"
+            style="@style/Txt.Link"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:text="Sede Bello · dentro del rango autorizado"
+            android:textColor="@color/ok" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/last_entry"
+                style="@style/Card"
+                android:layout_width="0dp"
+                android:layout_height="76dp"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/Txt.Sub"
+                    android:text="Última entrada"
+                    android:textSize="12sp" />
+
+                <TextView
+                    style="@style/Txt.Medium"
+                    android:layout_marginTop="6dp"
+                    android:text="07:58"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:id="@+id/week_hours"
+                style="@style/Card"
+                android:layout_width="0dp"
+                android:layout_height="76dp"
+                android:layout_weight="1">
+
+                <TextView
+                    style="@style/Txt.Sub"
+                    android:text="Horas esta semana"
+                    android:textSize="12sp" />
+
+                <TextView
+                    style="@style/Txt.Medium"
+                    android:layout_marginTop="6dp"
+                    android:text="32h 40m"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/Divider"
+            android:layout_marginTop="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/schedule"
+                style="@style/Txt.Link"
+                android:text="Mi horario" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/request_permit"
+                style="@style/Txt.Link"
+                android:text="Solicitar permiso" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

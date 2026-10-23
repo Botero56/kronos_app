@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NUEVA: Vista previa del reporte (al tocar "Abrir archivo") -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/part_back" />
+
+            <TextView
+                style="@style/Txt.TitleBar"
+                android:layout_gravity="center"
+                android:text="Asistencia_1-7_sep_2026.pdf"
+                android:textSize="14sp" />
+
+            <ImageButton
+                android:id="@+id/share"
+                style="@style/IconBtn"
+                android:layout_gravity="end"
+                android:layout_marginEnd="-10dp"
+                android:contentDescription="Compartir"
+                android:src="@drawable/ic_share"
+                app:tint="@color/ink" />
+        </FrameLayout>
+
+        <!-- Hoja del PDF -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_outline"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:contentDescription="Kronos"
+                    android:src="@drawable/kronos_logo" />
+
+                <TextView
+                    style="@style/Txt"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/zen_dots"
+                    android:text="KRONOS"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/Txt.Medium"
+                android:layout_marginTop="16dp"
+                android:text="Reporte de asistencia"
+                android:textSize="16sp" />
+
+            <TextView
+                style="@style/Txt.Small"
+                android:layout_marginTop="2dp"
+                android:text="1 – 7 sep 2026 · Todas las sedes · Todos los empleados" />
+
+            <!-- Resumen -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt.Small" android:text="Presentes" android:textSize="11sp" />
+                    <TextView style="@style/Txt.Medium" android:text="42" android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt.Small" android:text="Tarde" android:textSize="11sp" />
+                    <TextView style="@style/Txt.Medium" android:text="5" android:textColor="@color/warn" android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt.Small" android:text="Ausentes" android:textSize="11sp" />
+                    <TextView style="@style/Txt.Medium" android:text="3" android:textColor="@color/bad" android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt.Small" android:text="Puntualidad" android:textSize="11sp" />
+                    <TextView style="@style/Txt.Medium" android:text="91%" android:textColor="@color/ok" android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Tabla -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_card"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:fontFamily="sans-serif-medium" android:text="Empleado" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:fontFamily="sans-serif-medium" android:text="Entrada" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:fontFamily="sans-serif-medium" android:text="Salida" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:fontFamily="sans-serif-medium" android:gravity="end" android:text="Estado" android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp">
+                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:text="Juan Pérez" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:text="08:01" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:text="17:00" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:text="A tiempo" android:textColor="@color/ok" android:textSize="11sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp">
+                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:text="María López" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:text="08:22" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:text="17:10" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:text="Tarde" android:textColor="@color/warn" android:textSize="11sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp">
+                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:text="Carlos Rúa" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:text="—" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:text="—" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:text="Ausente" android:textColor="@color/bad" android:textSize="11sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp">
+                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:text="Ana Torres" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:text="07:58" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:text="17:02" android:textSize="11sp" />
+                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:text="A tiempo" android:textColor="@color/ok" android:textSize="11sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <TextView
+                style="@style/Txt.Small"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:text="Página 1 de 1"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/home"
+            style="@style/Btn.Secondary"
+            android:layout_marginTop="20dp"
+            android:text="Volver al inicio" />
+    </LinearLayout>
+</ScrollView>

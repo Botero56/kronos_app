@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 27. Solicitudes de permiso (admin) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        style="@style/Screen"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout style="@style/Content">
+
+            <TextView
+                style="@style/Txt.Title"
+                android:layout_marginTop="8dp"
+                android:text="Solicitudes" />
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:layout_marginTop="6dp"
+                android:text="Bandeja de entrada · Admin" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="4dp">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pendientes" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aprobadas" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rechazadas" />
+            </com.google.android.material.tabs.TabLayout>
+
+            <LinearLayout
+                android:id="@+id/r1"
+                style="@style/Row"
+                android:background="?attr/selectableItemBackground">
+                <TextView style="@style/Txt.Avatar" android:text="JP" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Juan Pérez" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="Cita médica · 12 sep 2026" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/r2"
+                style="@style/Row"
+                android:background="?attr/selectableItemBackground">
+                <TextView style="@style/Txt.Avatar" android:text="ML" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="María López" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="Vacaciones · 15 – 22 oct 2026" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/r3"
+                style="@style/Row"
+                android:background="?attr/selectableItemBackground">
+                <TextView style="@style/Txt.Avatar" android:text="CR" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Carlos Rúa" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="Diligencia personal · 28 sep 2026" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/r4"
+                style="@style/Row"
+                android:background="?attr/selectableItemBackground">
+                <TextView style="@style/Txt.Avatar" android:text="AT" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Ana Torres" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="Calamidad doméstica · 5 oct 2026" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/part_admin_bar" />
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 9. Ajustes -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Ajustes" />
+
+        <LinearLayout
+            style="@style/Row"
+            android:layout_marginTop="12dp"
+            android:paddingVertical="4dp">
+
+            <TextView
+                style="@style/Txt.Fill"
+                android:text="Notificaciones push" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+        </LinearLayout>
+
+        <View style="@style/Divider" />
+
+        <LinearLayout
+            style="@style/Row"
+            android:paddingVertical="4dp">
+
+            <TextView
+                style="@style/Txt.Fill"
+                android:text="Recordatorio de marcaje" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true" />
+        </LinearLayout>
+
+        <View style="@style/Divider" />
+
+        <LinearLayout
+            style="@style/Row"
+            android:paddingVertical="4dp">
+
+            <TextView
+                style="@style/Txt.Fill"
+                android:text="Tema oscuro" />
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <View style="@style/Divider" />
+
+        <LinearLayout style="@style/Row">
+
+            <TextView
+                style="@style/Txt"
+                android:text="Idioma" />
+
+            <TextView
+                style="@style/Txt.End"
+                android:text="Español"
+                android:textColor="@color/muted" />
+        </LinearLayout>
+
+        <View style="@style/Divider" />
+
+        <TextView
+            android:id="@+id/privacy"
+            style="@style/Txt.Link"
+            android:layout_width="match_parent"
+            android:paddingVertical="14dp"
+            android:text="Política de privacidad"
+            android:textColor="@color/ink"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/logout"
+            style="@style/Btn.Secondary"
+            android:layout_marginTop="32dp"
+            android:text="Cerrar sesión"
+            android:textColor="@color/bad" />
+    </LinearLayout>
+</ScrollView>

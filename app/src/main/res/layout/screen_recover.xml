@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 4. Recuperar contraseña -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <ImageView
+            android:layout_width="163dp"
+            android:layout_height="163dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="60dp"
+            android:contentDescription="Kronos"
+            android:src="@drawable/kronos_logo" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="36dp"
+            android:text="Recuperar contraseña" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="18dp"
+            android:text="Te enviaremos un enlace a tu correo para restablecerla." />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:layout_marginTop="10dp"
+            android:text="Correo electrónico" />
+
+        <EditText
+            style="@style/Field"
+            android:hint="nombre@empresa.com"
+            android:inputType="textEmailAddress" />
+
+        <Button
+            android:id="@+id/send"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="24dp"
+            android:text="Enviar enlace" />
+    </LinearLayout>
+</ScrollView>

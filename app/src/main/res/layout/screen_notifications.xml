@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 10. Notificaciones -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:layout_marginStart="10dp"
+            android:text="Notificaciones" />
+
+        <LinearLayout
+            android:id="@+id/n1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="24dp"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_accent"
+                android:backgroundTint="@color/link" />
+
+            <LinearLayout
+                style="@style/Col"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    style="@style/Txt"
+                    android:text="Recuerda marcar tu salida."
+                    android:textSize="13sp" />
+
+                <TextView
+                    style="@style/Txt.Small"
+                    android:layout_marginTop="4dp"
+                    android:text="Hace 10 min" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/n2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_accent"
+                android:backgroundTint="@color/ok" />
+
+            <LinearLayout
+                style="@style/Col"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    style="@style/Txt"
+                    android:text="Tu permiso del 12 de septiembre fue aprobado."
+                    android:textSize="13sp" />
+
+                <TextView
+                    style="@style/Txt.Small"
+                    android:text="Hace 3 h" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/n3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:background="?attr/selectableItemBackground"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_accent"
+                android:backgroundTint="@color/warn" />
+
+            <LinearLayout
+                style="@style/Col"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    style="@style/Txt"
+                    android:text="Marcaje fuera de la ubicación autorizada."
+                    android:textSize="13sp" />
+
+                <TextView
+                    style="@style/Txt.Small"
+                    android:layout_marginTop="4dp"
+                    android:text="Ayer" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

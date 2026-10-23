@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 12. Sin ubicación -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout
+        style="@style/Content"
+        android:paddingTop="265dp">
+
+        <TextView
+            style="@style/Txt.Badge"
+            android:backgroundTint="@color/bad_bg"
+            android:text="Sin\nacceso"
+            android:textColor="@color/bad" />
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="Necesitamos tu ubicación"
+            android:textSize="17sp" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Kronos usa tu ubicación solo al marcar entrada o salida, para confirmar que estás en tu sede." />
+
+        <Button
+            android:id="@+id/open_settings"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="40dp"
+            android:text="Abrir configuración" />
+    </LinearLayout>
+</ScrollView>

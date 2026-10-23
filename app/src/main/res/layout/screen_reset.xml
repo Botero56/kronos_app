@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 5. Restablecer contraseña -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout
+        style="@style/Content"
+        android:paddingTop="75dp">
+
+        <ImageView
+            android:layout_width="163dp"
+            android:layout_height="163dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Kronos"
+            android:src="@drawable/kronos_logo" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:text="Nueva contraseña" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="6dp"
+            android:text="Elige una contraseña segura de al menos 8 caracteres." />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:text="Nueva contraseña" />
+
+        <EditText
+            style="@style/Field"
+            android:hint="Nueva contraseña"
+            android:inputType="textPassword" />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:text="Confirmar contraseña" />
+
+        <EditText
+            style="@style/Field"
+            android:hint="Confirmar contraseña"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/save"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="24dp"
+            android:text="Guardar contraseña" />
+    </LinearLayout>
+</ScrollView>

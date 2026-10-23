@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 15.1. Verificación biométrica salida -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+
+            <include layout="@layout/part_back" />
+
+            <TextView
+                style="@style/Txt.TitleBar"
+                android:layout_gravity="center"
+                android:text="Verificación biométrica" />
+        </FrameLayout>
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_marginTop="16dp"
+            android:text="Confirma tu identidad para marcar el turno" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="4dp"
+            android:text="Selecciona tu método de verificación" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/tab_a"
+                style="@style/Tab"
+                android:background="@drawable/bg_tab">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_user"
+                    app:tint="@color/tab_content" />
+
+                <TextView
+                    style="@style/Txt.Medium"
+                    android:layout_marginTop="10dp"
+                    android:text="Reconocimiento facial"
+                    android:textColor="@color/tab_content"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="12dp"
+                android:layout_height="0dp" />
+
+            <LinearLayout
+                android:id="@+id/tab_b"
+                style="@style/Tab"
+                android:background="@drawable/bg_tab">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_fingerprint"
+                    app:tint="@color/tab_content" />
+
+                <TextView
+                    style="@style/Txt.Medium"
+                    android:layout_marginTop="10dp"
+                    android:text="Huella dactilar"
+                    android:textColor="@color/tab_content"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Rostro -->
+        <LinearLayout
+            android:id="@+id/area_a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:background="@drawable/bg_scan_circle">
+
+                <ImageView
+                    android:layout_width="84dp"
+                    android:layout_height="104dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_user_round" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:layout_marginTop="18dp"
+                android:text="Posiciona tu rostro dentro del marco" />
+        </LinearLayout>
+
+        <!-- Huella -->
+        <LinearLayout
+            android:id="@+id/area_b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="42dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <FrameLayout
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:background="@drawable/bg_scan_circle">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:src="@drawable/ic_fingerprint"
+                    app:tint="@color/line" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:layout_marginTop="18dp"
+                android:text="Apoya tu dedo en el sensor" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/scan"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="40dp"
+            android:text="Escanear ahora"
+            android:textSize="15sp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,7 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="84dp" android:height="104dp"
+    android:viewportWidth="84" android:viewportHeight="104">
+    <group android:translateX="0" android:translateY="0">
+        <path android:pathData="M42 56.3333C51.664 56.3333 59.4982 46.6328 59.4982 34.6667C59.4982 22.7005 51.664 13 42 13C32.336 13 24.5017 22.7005 24.5017 34.6667C24.5017 46.6328 32.336 56.3333 42 56.3333ZM42 56.3333C49.4253 56.3333 56.5465 59.9857 61.797 66.487C67.0475 72.9882 69.9972 81.8058 69.9972 91M42 56.3333C34.5747 56.3333 27.4535 59.9857 22.203 66.487C16.9525 72.9882 14.0028 81.8058 14.0028 91" android:strokeColor="#D3D0C8" android:strokeWidth="2" android:strokeLineCap="round" android:strokeLineJoin="miter" android:fillColor="#00000000"/>
+    </group>
+</vector>

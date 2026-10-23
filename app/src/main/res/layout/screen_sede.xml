@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 6. Selección de sede -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout
+        style="@style/Content"
+        android:paddingTop="47dp">
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Elige tu sede" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="6dp"
+            android:text="Perteneces a más de una ubicación." />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_sede_selected"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                style="@style/Txt.Medium"
+                android:text="Sede Bello" />
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:layout_marginTop="4dp"
+                android:text="Cra. 50 #45-12"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_sede"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                style="@style/Txt.Medium"
+                android:text="Sede Medellín centro" />
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:layout_marginTop="4dp"
+                android:text="Cl. 30 #80-20"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/next"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="24dp"
+            android:text="Continuar" />
+    </LinearLayout>
+</ScrollView>

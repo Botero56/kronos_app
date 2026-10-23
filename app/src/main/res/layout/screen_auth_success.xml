@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NUEVA: Verificación exitosa. "Continuar" lleva a Selección de sede. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Screen">
+
+    <LinearLayout
+        style="@style/Content"
+        android:gravity="center_horizontal"
+        android:paddingTop="200dp">
+
+        <FrameLayout
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/ok_bg">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_check"
+                app:tint="@color/ok" />
+        </FrameLayout>
+
+        <TextView
+            style="@style/Txt.Title"
+            android:layout_marginTop="20dp"
+            android:text="Verificación exitosa" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="Tu identidad fue confirmada correctamente." />
+
+        <Button
+            android:id="@+id/next"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="40dp"
+            android:text="Continuar" />
+    </LinearLayout>
+</ScrollView>

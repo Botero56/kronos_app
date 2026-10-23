@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 16.1. Confirmación de salida -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout
+        style="@style/Content"
+        android:gravity="center_horizontal"
+        android:paddingTop="140dp">
+
+        <TextView
+            style="@style/Txt.Badge"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:backgroundTint="@color/ok_bg"
+            android:text="OK"
+            android:textColor="@color/ok"
+            android:textSize="13sp" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:layout_marginTop="16dp"
+            android:text="Salida exitosa" />
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_marginTop="8dp"
+            android:text="06:00 p.m."
+            android:textSize="28sp" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="8dp"
+            android:text="Sede Bello" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="8dp"
+            android:text="Ubicación verificada dentro del radio autorizado"
+            android:textColor="@color/ok" />
+
+        <Button
+            android:id="@+id/home"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="36dp"
+            android:text="Volver al inicio" />
+    </LinearLayout>
+</ScrollView>

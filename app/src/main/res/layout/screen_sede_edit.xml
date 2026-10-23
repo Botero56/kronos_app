@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 22. Crear / editar sede -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Nueva sede" />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:text="Nombre de la sede" />
+
+        <EditText
+            style="@style/Field"
+            android:text="Sede Bello" />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:text="Dirección" />
+
+        <EditText
+            style="@style/Field"
+            android:text="Cra. 50 #45-12, Bello" />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:text="Ubicación y radio autorizado" />
+
+        <TextView
+            style="@style/Txt.Small"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/bg_card"
+            android:gravity="center"
+            android:text="[ mapa · radio de 150 m ]" />
+
+        <Button
+            android:id="@+id/save"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="24dp"
+            android:text="Guardar sede" />
+    </LinearLayout>
+</ScrollView>

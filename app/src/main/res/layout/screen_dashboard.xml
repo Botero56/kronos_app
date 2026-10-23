@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 20. Dashboard admin -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        style="@style/Screen"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout style="@style/Content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/sede"
+                    style="@style/Txt.Title"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackground"
+                    android:text="Dashboard · Sede Bello"
+                    android:textSize="18sp" />
+
+                <ImageButton
+                    android:id="@+id/logout"
+                    style="@style/IconBtn"
+                    android:layout_marginEnd="-10dp"
+                    android:contentDescription="Cerrar sesión"
+                    android:src="@drawable/ic_logout"
+                    app:tint="@color/ink" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/stat1"
+                    style="@style/Card"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+                    <TextView style="@style/Txt.Sub" android:text="Presentes" android:textSize="12sp" />
+                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="42" android:textSize="22sp" />
+                </LinearLayout>
+
+                <Space android:layout_width="12dp" android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/stat2"
+                    style="@style/Card"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+                    <TextView style="@style/Txt.Sub" android:text="Tarde" android:textSize="12sp" />
+                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="5" android:textColor="@color/warn" android:textSize="22sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/stat3"
+                    style="@style/Card"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+                    <TextView style="@style/Txt.Sub" android:text="Ausentes" android:textSize="12sp" />
+                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="3" android:textColor="@color/bad" android:textSize="22sp" />
+                </LinearLayout>
+
+                <Space android:layout_width="12dp" android:layout_height="0dp" />
+
+                <LinearLayout
+                    android:id="@+id/stat4"
+                    style="@style/Card"
+                    android:layout_width="0dp"
+                    android:layout_weight="1">
+                    <TextView style="@style/Txt.Sub" android:text="Puntualidad" android:textSize="12sp" />
+                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="91%" android:textColor="@color/ok" android:textSize="22sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                style="@style/Txt.Medium"
+                android:layout_marginTop="24dp"
+                android:text="Marcajes recientes" />
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Txt.Avatar" android:text="JP" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Juan Pérez" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="08:01" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="A tiempo" android:textColor="@color/ok" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout style="@style/Row">
+                <TextView style="@style/Txt.Avatar" android:text="ML" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="María López" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="08:22" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="Tarde" android:textColor="@color/warn" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <LinearLayout
+                android:id="@+id/absent"
+                style="@style/Row"
+                android:background="?attr/selectableItemBackground">
+                <TextView style="@style/Txt.Avatar" android:text="CR" />
+                <LinearLayout style="@style/Col">
+                    <TextView style="@style/Txt" android:text="Carlos Rúa" android:textSize="13sp" />
+                    <TextView style="@style/Txt.Small" android:text="—" android:textSize="11sp" />
+                </LinearLayout>
+                <TextView style="@style/Txt" android:text="Ausente" android:textColor="@color/bad" android:textSize="12sp" />
+            </LinearLayout>
+            <View style="@style/Divider" />
+
+            <Button
+                android:id="@+id/report"
+                style="@style/Btn.Secondary"
+                android:layout_marginTop="20dp"
+                android:text="Generar reporte" />
+        </LinearLayout>
+    </ScrollView>
+
+    <include layout="@layout/part_admin_bar" />
+</LinearLayout>

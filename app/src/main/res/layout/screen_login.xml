@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 2. Login -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Screen">
+
+    <LinearLayout
+        style="@style/Content"
+        android:layout_height="match_parent"
+        android:paddingTop="40dp">
+
+        <ImageView
+            android:layout_width="163dp"
+            android:layout_height="163dp"
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="Kronos"
+            android:src="@drawable/kronos_logo" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:layout_gravity="center_horizontal"
+            android:text="Iniciar sesión" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_gravity="center_horizontal"
+            android:text="Ingresa con tu cuenta de Kronos." />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:layout_marginTop="40dp"
+            android:text="Correo electrónico" />
+
+        <EditText
+            style="@style/Field"
+            android:hint="nombre@empresa.com"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:text="Contraseña" />
+
+        <EditText
+            style="@style/Field"
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
+
+        <TextView
+            android:id="@+id/forgot"
+            style="@style/Txt.Link"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:text="¿Olvidaste tu contraseña?"
+            android:textColor="@color/link" />
+
+        <Button
+            android:id="@+id/login"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="24dp"
+            android:text="Iniciar sesión"
+            app:strokeColor="@color/black"
+            app:strokeWidth="1dp" />
+
+        <TextView
+            android:id="@+id/register"
+            style="@style/Txt.Link"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="¿Nuevo en Kronos? Crear cuenta" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:id="@+id/admin"
+            style="@style/Txt.Sub"
+            android:background="@drawable/bg_field"
+            android:paddingHorizontal="6dp"
+            android:paddingVertical="6dp"
+            android:text="Entrar como administrador" />
+    </LinearLayout>
+</ScrollView>

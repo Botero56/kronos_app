@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 11. Acerca de - Ayuda -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Ayuda y soporte" />
+
+        <LinearLayout
+            style="@style/Row"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                style="@style/Txt"
+                android:text="Versión de la app"
+                android:textColor="@color/muted" />
+
+            <TextView
+                style="@style/Txt.End"
+                android:text="1.4.2"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <View style="@style/Divider" />
+
+        <TextView
+            android:id="@+id/faq"
+            style="@style/Txt.Link"
+            android:layout_width="match_parent"
+            android:paddingVertical="14dp"
+            android:text="Preguntas frecuentes"
+            android:textColor="@color/ink"
+            android:textSize="14sp" />
+
+        <View style="@style/Divider" />
+
+        <TextView
+            android:id="@+id/support"
+            style="@style/Txt.Link"
+            android:layout_width="match_parent"
+            android:paddingVertical="14dp"
+            android:text="Contactar soporte"
+            android:textColor="@color/ink"
+            android:textSize="14sp" />
+
+        <View style="@style/Divider" />
+
+        <TextView
+            android:id="@+id/contact_admin"
+            style="@style/Txt.Link"
+            android:layout_width="match_parent"
+            android:paddingVertical="14dp"
+            android:text="Contactar a tu administrador"
+            android:textColor="@color/ink"
+            android:textSize="14sp" />
+
+        <View style="@style/Divider" />
+    </LinearLayout>
+</ScrollView>

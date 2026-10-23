@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 1. Splash screen -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="96dp">
+
+    <ImageView
+        android:layout_width="235dp"
+        android:layout_height="235dp"
+        android:contentDescription="Kronos"
+        android:src="@drawable/kronos_logo" />
+
+    <TextView
+        style="@style/Txt"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/zen_dots"
+        android:text="KRONOS"
+        android:textSize="50sp" />
+</LinearLayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 19. Solicitar permiso -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Solicitar permiso" />
+
+        <TextView
+            style="@style/Txt.Label"
+            android:text="Tipo de permiso" />
+
+        <TextView
+            style="@style/Select"
+            android:text="Cita médica" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/Col">
+
+                <TextView
+                    style="@style/Txt.Label"
+                    android:text="Fecha de inicio" />
+
+                <TextView
+                    style="@style/Select"
+                    android:text="12 sep 2026" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="12dp"
+                android:layout_height="0dp" />
+
+            <LinearLayout style="@style/Col">
+
+                <TextView
+                    style="@style/Txt.Label"
+                    android:text="Fecha de fin" />
+
+                <TextView
+                    style="@style/Select"
+                    android:text="12 sep 2026" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            style="@style/Txt.Label"
+            android:text="Motivo" />
+
+        <EditText
+            style="@style/Field"
+            android:layout_height="110dp"
+            android:gravity="top"
+            android:hint="Cita médica en horas de la mañana..."
+            android:inputType="textMultiLine"
+            android:paddingVertical="12dp" />
+
+        <Button
+            android:id="@+id/send"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="24dp"
+            android:text="Enviar solicitud" />
+    </LinearLayout>
+</ScrollView>

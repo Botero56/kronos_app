@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 7. Perfil de usuario -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/part_back" />
+
+            <ImageButton
+                android:id="@+id/settings"
+                style="@style/IconBtn"
+                android:layout_gravity="end"
+                android:layout_marginEnd="-6dp"
+                android:contentDescription="Ajustes"
+                android:src="@drawable/ic_settings" />
+        </FrameLayout>
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/avatar_warm"
+            android:gravity="center"
+            android:text="CR"
+            android:textColor="@color/link"
+            android:textSize="18sp" />
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="Camila Restrepo"
+            android:textSize="16sp" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:text="Operaria de producción" />
+
+        <View
+            style="@style/Divider"
+            android:layout_marginTop="18dp" />
+
+        <LinearLayout
+            style="@style/Row"
+            android:paddingBottom="2dp">
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:text="Correo" />
+
+            <TextView
+                style="@style/Txt.End"
+                android:text="c.restrepo@empresa.com" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Row"
+            android:paddingBottom="2dp">
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:text="Teléfono" />
+
+            <TextView
+                style="@style/Txt.End"
+                android:text="+57 300 123 4567" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/Row"
+            android:paddingBottom="2dp">
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:text="Sede" />
+
+            <TextView
+                style="@style/Txt.End"
+                android:text="Bello" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/edit"
+            style="@style/Btn.Secondary"
+            android:layout_marginTop="22dp"
+            android:text="Editar perfil" />
+    </LinearLayout>
+</ScrollView>

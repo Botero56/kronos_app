@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 24. Generador de reportes -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Generar reporte" />
+
+        <TextView style="@style/Txt.Label" android:text="Rango de fechas" />
+        <TextView style="@style/Select" android:text="1 – 7 sep 2026" />
+
+        <TextView style="@style/Txt.Label" android:text="Sede" />
+        <TextView style="@style/Select" android:text="Todas las sedes" />
+
+        <TextView style="@style/Txt.Label" android:text="Empleado" />
+        <TextView style="@style/Select" android:text="Todos los empleados" />
+
+        <TextView style="@style/Txt.Label" android:text="Formato de exportación" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:checkedButton="@+id/fmt_pdf"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <Button
+                android:id="@+id/fmt_pdf"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PDF" />
+
+            <Button
+                android:id="@+id/fmt_excel"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Excel" />
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <Button
+            android:id="@+id/generate"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="24dp"
+            android:text="Generar reporte" />
+    </LinearLayout>
+</ScrollView>

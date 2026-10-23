@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- NUEVA: Descarga del reporte completada -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Descargar reporte" />
+
+        <FrameLayout
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/bg_circle"
+            android:backgroundTint="@color/ok_bg">
+
+            <ImageView
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                android:src="@drawable/ic_download"
+                app:tint="@color/ok" />
+        </FrameLayout>
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="Descarga completada"
+            android:textSize="17sp" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_width="match_parent"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="El reporte se guardó en la carpeta Descargas de tu dispositivo." />
+
+        <LinearLayout
+            style="@style/Card"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                style="@style/Txt.Medium"
+                android:text="Asistencia_1-7_sep_2026.pdf"
+                android:textSize="13sp" />
+
+            <TextView
+                style="@style/Txt.Small"
+                android:layout_marginTop="4dp"
+                android:text="156 KB · Descargas/Kronos"
+                android:textSize="11sp" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:progress="100"
+                app:indicatorColor="@color/ok"
+                app:trackColor="@color/line"
+                app:trackCornerRadius="4dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/open"
+            style="@style/Btn.Primary"
+            android:layout_marginTop="24dp"
+            android:text="Abrir archivo" />
+
+        <Button
+            android:id="@+id/home"
+            style="@style/Btn.Secondary"
+            android:layout_marginTop="12dp"
+            android:text="Volver al inicio" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Flecha de regreso (arrow-left de Figma). MainActivity la conecta con "atrás". -->
+<ImageButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/back"
+    style="@style/IconBtn"
+    android:layout_marginStart="-12dp"
+    android:contentDescription="Atrás"
+    android:src="@drawable/ic_arrow_left" />

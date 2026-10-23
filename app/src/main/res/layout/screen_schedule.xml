@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 30. Mi horario / turno -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Mi horario" />
+
+        <TextView
+            style="@style/Txt.Sub"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            android:text="Turno diurno · Sede Bello" />
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Txt" android:text="Lunes" android:textSize="13sp" />
+            <TextView style="@style/Txt.End" android:text="07:30 – 17:00" android:textColor="@color/muted" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Txt" android:text="Martes" android:textSize="13sp" />
+            <TextView style="@style/Txt.End" android:text="07:30 – 17:00" android:textColor="@color/muted" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Txt" android:text="Miércoles" android:textSize="13sp" />
+            <TextView style="@style/Txt.End" android:text="07:30 – 17:00" android:textColor="@color/muted" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Txt" android:text="Jueves" android:textSize="13sp" />
+            <TextView style="@style/Txt.End" android:text="07:30 – 17:00" android:textColor="@color/muted" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Txt" android:text="Viernes" android:textSize="13sp" />
+            <TextView style="@style/Txt.End" android:text="07:30 – 17:00" android:textColor="@color/muted" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Txt" android:text="Sábado" android:textSize="13sp" />
+            <TextView style="@style/Txt.End" android:text="Libre" android:textColor="@color/muted" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout style="@style/Row">
+            <TextView style="@style/Txt" android:text="Domingo" android:textSize="13sp" />
+            <TextView style="@style/Txt.End" android:text="Libre" android:textColor="@color/muted" android:textSize="12sp" />
+        </LinearLayout>
+        <View style="@style/Divider" />
+
+        <LinearLayout
+            style="@style/Card"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:text="Tolerancia de retraso: 10 min" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

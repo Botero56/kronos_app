@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 33. Detalle de solicitud -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Screen">
+
+    <LinearLayout style="@style/Content">
+
+        <include layout="@layout/part_back" />
+
+        <TextView
+            style="@style/Txt.Title"
+            android:text="Detalle de solicitud" />
+
+        <TextView
+            style="@style/Txt.Pill"
+            android:layout_marginTop="16dp"
+            android:text="Pendiente"
+            android:textColor="@color/warn" />
+
+        <TextView style="@style/Txt.Small" android:layout_marginTop="16dp" android:text="Tipo de permiso" />
+        <TextView style="@style/Txt" android:text="Cita médica" />
+
+        <TextView style="@style/Txt.Small" android:layout_marginTop="12dp" android:text="Fechas" />
+        <TextView style="@style/Txt" android:text="12 sep 2026" />
+
+        <TextView style="@style/Txt.Small" android:layout_marginTop="12dp" android:text="Motivo" />
+        <TextView style="@style/Txt" android:text="Cita médica en horas de la mañana en la EPS." />
+
+        <TextView
+            style="@style/Txt.Medium"
+            android:layout_marginTop="20dp"
+            android:text="Seguimiento" />
+
+        <TextView style="@style/Txt.Sub" android:layout_marginTop="6dp" android:text="● Solicitud enviada — 8 sep, 10:20 a.m." />
+        <TextView style="@style/Txt.Sub" android:layout_marginTop="6dp" android:text="○ En revisión por el administrador" />
+
+        <Button
+            android:id="@+id/cancel"
+            style="@style/Btn.Secondary"
+            android:layout_marginTop="28dp"
+            android:text="Cancelar solicitud"
+            android:textColor="@color/bad" />
+    </LinearLayout>
+</ScrollView>
