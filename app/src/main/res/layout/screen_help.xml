@@ -60,5 +60,20 @@
             android:textSize="14sp" />
 
         <View style="@style/Divider" />
+
+        <LinearLayout
+            style="@style/Card"
+            android:layout_marginTop="24dp">
+
+            <TextView
+                style="@style/Txt.Medium"
+                android:text="Integrantes del grupo" />
+
+            <TextView
+                style="@style/Txt.Sub"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="6dp"
+                android:text="Sebastian Giraldo\nSebastian Gonzalez\nAlejandro Pacheco\nSamuel Botero" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

@@ -8,6 +8,8 @@ Este repositorio contiene el **prototipo visual**: todas las pantallas están he
 **layouts XML** a partir del diseño de Figma y están **conectadas entre sí**, pero **no tienen
 lógica** (no se validan campos, no se guardan datos, no hay backend).
 
+**Integrantes del grupo:** Sebastian Giraldo · Sebastian Gonzalez · Alejandro Pacheco · Samuel Botero
+
 - Diseño en Figma: <https://www.figma.com/proto/oaVJodp0P68iUT7EKH6hxK?node-id=0-1>
 - Paquete: `com.example.kronos_` · minSdk 24 · targetSdk 37
 
