@@ -16,3 +16,8 @@ local.properties
 .kotlin
 /.idea/deploymentTargetSelector.xml
 /.idea/deviceManager.xml
+
+# Firma del release y configuración de Firebase: no se suben al repositorio
+keystore.properties
+*.jks
+google-services.json
