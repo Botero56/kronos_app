@@ -2,10 +2,12 @@ package com.example.kronos_
 
 import android.os.Bundle
 import android.view.View
+import android.widget.CompoundButton
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -105,6 +107,11 @@ class MainActivity : AppCompatActivity() {
     private val stack = ArrayDeque<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // Tema oscuro guardado (única preferencia que se recuerda).
+        val dark = getPreferences(MODE_PRIVATE).getBoolean(DARK, false)
+        AppCompatDelegate.setDefaultNightMode(
+            if (dark) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO,
+        )
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         // Deja espacio para la barra de estado y la de navegación.
@@ -114,7 +121,14 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         onBackPressedDispatcher.addCallback(this) { go(BACK) }
-        go(s.screen_splash)
+        // Al cambiar el tema la Activity se recrea: se recupera la pila para seguir en la misma pantalla.
+        val saved = savedInstanceState?.getIntArray(STACK)
+        if (saved == null) go(s.screen_splash) else { stack.addAll(saved.toList()); show(stack.last()) }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putIntArray(STACK, stack.toIntArray())
     }
 
     private fun go(screen: Int) {
@@ -137,6 +151,15 @@ class MainActivity : AppCompatActivity() {
         }
         highlightAdminBar(screen)
         setupTabs()
+        findViewById<CompoundButton?>(v.dark_mode)?.apply {
+            isChecked = getPreferences(MODE_PRIVATE).getBoolean(DARK, false)
+            setOnCheckedChangeListener { _, on ->
+                getPreferences(MODE_PRIVATE).edit().putBoolean(DARK, on).apply()
+                AppCompatDelegate.setDefaultNightMode(
+                    if (on) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO,
+                )
+            }
+        }
         if (screen == s.screen_splash) {
             window.decorView.postDelayed({ if (stack.lastOrNull() == s.screen_splash) go(s.screen_login) }, 1500)
         }
@@ -170,5 +193,7 @@ class MainActivity : AppCompatActivity() {
 
     private companion object {
         const val BACK = 0
+        const val DARK = "dark"
+        const val STACK = "stack"
     }
 }

@@ -18,6 +18,7 @@
     <color name="bad">#A32D2D</color>
     <color name="bad_bg">#FCEBEB</color>
     <color name="switch_off">#D9D6CC</color>
+    <color name="surface">#FFFFFF</color>
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
 </resources>

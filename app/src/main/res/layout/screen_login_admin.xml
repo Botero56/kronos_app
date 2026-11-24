@@ -57,7 +57,7 @@
             style="@style/Btn.Primary"
             android:layout_marginTop="24dp"
             android:text="Iniciar sesión"
-            app:strokeColor="@color/black"
+            app:strokeColor="@color/ink"
             app:strokeWidth="1dp" />
 
         <TextView

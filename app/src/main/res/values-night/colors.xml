@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Modo oscuro: mismos tokens, otros valores -->
+    <color name="ink">#ECEBE7</color>
+    <color name="muted">#B4B2AA</color>
+    <color name="hint">#8A8880</color>
+    <color name="line">#3A3936</color>
+    <color name="card">#242422</color>
+    <color name="surface">#161615</color>
+    <color name="primary_bg">#0E3445</color>
+    <color name="link">#7FB6EE</color>
+    <color name="avatar_bg">#1E2E3E</color>
+    <color name="ok">#5DCAA5</color>
+    <color name="ok_bg">#11302A</color>
+    <color name="warn">#E8B36A</color>
+    <color name="warn_bg">#3A2A12</color>
+    <color name="bad">#F09595</color>
+    <color name="bad_bg">#3D1C1C</color>
+    <color name="switch_off">#4A4945</color>
+</resources>
