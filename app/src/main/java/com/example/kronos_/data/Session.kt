@@ -3,6 +3,7 @@ package com.example.kronos_.data
 import android.net.Uri
 import com.example.kronos_.auth.UserFacingException
 import com.example.kronos_.report.GeneratedReport
+import com.google.firebase.auth.FirebaseUser
 import java.time.LocalDateTime
 
 /** Datos del usuario que inició sesión y lo que se pasa de una pantalla a otra. */
@@ -34,9 +35,8 @@ object Session {
     fun sedesOf(user: UserProfile): List<Sede> = sedes.filter { it.id in user.sedeIds }
 
     /** Carga el perfil, la empresa y las sedes del usuario que inició sesión. */
-    suspend fun load(uid: String) {
-        val user = KronosRepository.loadProfile(uid)
-            ?: throw UserFacingException("Tu cuenta no tiene un perfil en Kronos. Pide a tu administrador que te registre.")
+    suspend fun load(account: FirebaseUser) {
+        val user = KronosRepository.loadProfile(account.uid) ?: KronosRepository.createCompanyForAccount(account)
         val loadedSedes = KronosRepository.loadSedes(user.companyId)
         clear()
         profile = user

@@ -260,10 +260,17 @@ class MainActivity : AppCompatActivity() {
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
-    /** Pide la huella, el rostro o el bloqueo de pantalla del teléfono. */
-    internal fun verifyIdentity(title: String, onVerified: () -> Unit) {
+    /**
+     * Pide la huella, el rostro o el bloqueo de pantalla del teléfono. Si el teléfono no tiene ninguno,
+     * [continueIfUnavailable] decide si se sigue sin verificar (login) o se detiene (marcajes).
+     */
+    internal fun verifyIdentity(title: String, continueIfUnavailable: Boolean = false, onVerified: () -> Unit) {
         val authenticators = BIOMETRIC_WEAK or DEVICE_CREDENTIAL
         if (BiometricManager.from(this).canAuthenticate(authenticators) != BiometricManager.BIOMETRIC_SUCCESS) {
+            if (continueIfUnavailable) {
+                showMessage("Este teléfono no tiene huella ni bloqueo de pantalla; se continúa sin esta verificación.")
+                return onVerified()
+            }
             return showMessage("Configura una huella, un rostro o un bloqueo de pantalla en el teléfono para verificar tu identidad.")
         }
         val callback = object : BiometricPrompt.AuthenticationCallback() {

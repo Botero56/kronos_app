@@ -6,6 +6,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.FirebaseApp
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
@@ -52,21 +53,35 @@ object KronosRepository {
             ?: throw UserFacingException("No se pudo crear la cuenta. Inténtalo de nuevo.")
         try {
             user.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(name).build()).await()
-            val companyRef = db.collection("companies").document()
-            val profile = UserProfile(
-                id = user.uid, name = name, email = email, document = "", position = "Administrador",
-                role = UserProfile.ROLE_ADMIN, companyId = companyRef.id, sedeIds = emptyList(), createdAt = LocalDate.now(),
-            )
-            db.batch()
-                .set(companyRef, mapOf("name" to companyName, "ownerId" to user.uid))
-                .set(users().document(user.uid), profile.toMap())
-                .commit().await()
-            return profile
+            return createCompany(user.uid, name, email, companyName)
         } catch (error: Exception) {
             // Sin empresa la cuenta queda inservible: se borra para poder registrarse de nuevo.
             user.delete()
             throw error
         }
+    }
+
+    /**
+     * Cuentas creadas desde la consola de Firebase (Authentication > Agregar usuario) no tienen perfil:
+     * la primera vez que entran se les crea una empresa propia y quedan como administradores.
+     */
+    suspend fun createCompanyForAccount(user: FirebaseUser): UserProfile {
+        val email = user.email.orEmpty()
+        val name = user.displayName?.takeIf { it.isNotBlank() } ?: email.substringBefore('@')
+        return createCompany(user.uid, name, email, "Empresa de $name")
+    }
+
+    private suspend fun createCompany(uid: String, name: String, email: String, companyName: String): UserProfile {
+        val companyRef = db.collection("companies").document()
+        val profile = UserProfile(
+            id = uid, name = name, email = email, document = "", position = "Administrador",
+            role = UserProfile.ROLE_ADMIN, companyId = companyRef.id, sedeIds = emptyList(), createdAt = LocalDate.now(),
+        )
+        db.batch()
+            .set(companyRef, mapOf("name" to companyName, "ownerId" to uid))
+            .set(users().document(uid), profile.toMap())
+            .commit().await()
+        return profile
     }
 
     /**

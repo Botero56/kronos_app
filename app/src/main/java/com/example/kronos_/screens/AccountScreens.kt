@@ -37,7 +37,7 @@ internal fun MainActivity.openSplashScreen() {
         if (!isShowing(s.screen_splash)) return@postDelayed
         val user = auth.currentUser ?: return@postDelayed startFrom(s.screen_login)
         lifecycleScope.launch {
-            val loaded = runCatching { Session.load(user.uid) }
+            val loaded = runCatching { Session.load(user) }
             if (!isShowing(s.screen_splash)) return@launch
             if (loaded.isSuccess) {
                 startFrom(s.screen_auth)
@@ -64,7 +64,7 @@ internal fun MainActivity.setupLoginScreen() {
             val user = auth.signInWithEmailAndPassword(email.trimmedText(), password.text.toString()).await().user
                 ?: return@launchTask
             try {
-                Session.load(user.uid)
+                Session.load(user)
                 if (screen == s.screen_login_admin && !Session.requireProfile().isAdmin) {
                     throw UserFacingException(
                         "Esta cuenta no es de administrador. Entra desde el inicio de sesión de empleados.",
@@ -97,10 +97,10 @@ internal fun MainActivity.setupRegisterScreen() {
         if (!terms.isChecked) return@setOnClickListener showMessage("Debes aceptar los términos y la política de privacidad.")
 
         launchTask(createButton) {
-            val profile = KronosRepository.registerCompany(
+            KronosRepository.registerCompany(
                 name.trimmedText(), email.trimmedText(), password.text.toString(), company.trimmedText(),
             )
-            Session.load(profile.id)
+            Session.load(auth.currentUser ?: return@launchTask)
             goIfStillOn(s.screen_register, s.screen_auth)
         }
     }
@@ -124,7 +124,9 @@ internal fun MainActivity.setupRecoverScreen() {
 /** Después del login se confirma la identidad con la huella, el rostro o el patrón del teléfono. */
 internal fun MainActivity.setupIdentityCheckScreen() {
     findViewById<Button>(v.verify).setOnClickListener {
-        verifyIdentity("Verificación de identidad") { goIfStillOn(s.screen_auth, s.screen_auth_success) }
+        verifyIdentity("Verificación de identidad", continueIfUnavailable = true) {
+            goIfStillOn(s.screen_auth, s.screen_auth_success)
+        }
     }
 }
 
