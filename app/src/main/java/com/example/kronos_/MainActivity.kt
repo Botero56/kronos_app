@@ -2,8 +2,12 @@ package com.example.kronos_
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.CheckBox
 import android.widget.CompoundButton
+import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,14 +17,21 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
+import com.example.kronos_.auth.CredentialValidator
+import com.example.kronos_.auth.authErrorMessage
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.example.kronos_.R.id as v
 import com.example.kronos_.R.layout as s
 
 /**
- * Prototipo visual: cada pantalla es un layout XML y aquí solo se conectan los botones.
- * Sin lógica: no valida campos ni guarda datos.
+ * Única Activity: cada pantalla es un layout XML y aquí se conectan los botones.
+ * El inicio de sesión, el registro y el cierre de sesión usan Firebase Authentication;
+ * las demás pantallas todavía muestran datos de ejemplo.
  */
 class MainActivity : AppCompatActivity() {
+
+    private val auth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     /** Ir a una pantalla raíz borra el historial (no se puede volver atrás a lo anterior). */
     private val roots = setOf(s.screen_login, s.screen_home, s.screen_dashboard)
@@ -36,22 +47,19 @@ class MainActivity : AppCompatActivity() {
     /** Conexiones: pantalla -> (vista que se toca -> pantalla destino). */
     private val links: Map<Int, Map<Int, Int>> = mapOf(
         // Comunes
+        // El botón de iniciar sesión y el de crear cuenta se conectan en setupLoginScreen y setupRegisterScreen.
         s.screen_login to mapOf(
-            v.forgot to s.screen_recover, v.login to s.screen_auth,
-            v.register to s.screen_register, v.admin to s.screen_login_admin,
+            v.forgot to s.screen_recover, v.register to s.screen_register, v.admin to s.screen_login_admin,
         ),
-        s.screen_login_admin to mapOf(
-            v.forgot to s.screen_recover, v.login to s.screen_auth, v.register to s.screen_register,
-        ),
+        s.screen_login_admin to mapOf(v.forgot to s.screen_recover, v.register to s.screen_register),
         s.screen_auth to mapOf(v.verify to s.screen_auth_success),
         s.screen_auth_success to mapOf(v.next to s.screen_sede),
-        s.screen_register to mapOf(v.create to BACK),
         s.screen_recover to mapOf(v.send to s.screen_reset),
         s.screen_reset to mapOf(v.save to s.screen_login),
         s.screen_sede to mapOf(v.next to s.screen_home),
         s.screen_profile to mapOf(v.settings to s.screen_settings, v.edit to s.screen_change_password),
         s.screen_change_password to mapOf(v.save to BACK),
-        s.screen_settings to mapOf(v.privacy to s.screen_help, v.logout to s.screen_login),
+        s.screen_settings to mapOf(v.privacy to s.screen_help),
         s.screen_notifications to mapOf(
             v.n1 to BACK, v.n2 to s.screen_my_requests, v.n3 to s.screen_out_of_range,
         ),
@@ -80,7 +88,7 @@ class MainActivity : AppCompatActivity() {
 
         // Administrador
         s.screen_dashboard to adminBar + mapOf(
-            v.logout to s.screen_login, v.sede to s.screen_sede_edit,
+            v.sede to s.screen_sede_edit,
             v.stat1 to s.screen_admin_history, v.stat2 to s.screen_admin_history,
             v.stat3 to s.screen_admin_history, v.stat4 to s.screen_admin_history,
             v.absent to s.screen_alerts, v.report to s.screen_report,
@@ -144,7 +152,12 @@ class MainActivity : AppCompatActivity() {
     private fun show(screen: Int) {
         setContentView(screen)
         findViewById<View?>(v.back)?.setOnClickListener { go(BACK) }
+        findViewById<View?>(v.logout)?.setOnClickListener { signOut() }
         links[screen]?.forEach { (view, to) -> findViewById<View>(view).setOnClickListener { go(to) } }
+        when (screen) {
+            s.screen_login, s.screen_login_admin -> setupLoginScreen()
+            s.screen_register -> setupRegisterScreen()
+        }
         // Si entró por el login de administrador, la verificación termina en el Dashboard.
         if (screen == s.screen_auth_success && s.screen_login_admin in stack) {
             findViewById<View>(v.next).setOnClickListener { go(s.screen_dashboard) }
@@ -164,6 +177,65 @@ class MainActivity : AppCompatActivity() {
             window.decorView.postDelayed({ if (stack.lastOrNull() == s.screen_splash) go(s.screen_login) }, 1500)
         }
     }
+
+    /** Inicio de sesión con correo y contraseña (empleado y administrador usan la misma cuenta). */
+    private fun setupLoginScreen() {
+        val email = findViewById<EditText>(v.email)
+        val password = findViewById<EditText>(v.password)
+        val loginButton = findViewById<Button>(v.login)
+        loginButton.setOnClickListener {
+            email.error = CredentialValidator.emailError(email.text.toString())
+            password.error = CredentialValidator.loginPasswordError(password.text.toString())
+            if (email.error != null || password.error != null) return@setOnClickListener
+
+            loginButton.isEnabled = false
+            val loginScreen = stack.last()
+            auth.signInWithEmailAndPassword(email.text.toString().trim(), password.text.toString())
+                .addOnCompleteListener(this) { result ->
+                    loginButton.isEnabled = true
+                    if (stack.lastOrNull() != loginScreen) return@addOnCompleteListener
+                    if (result.isSuccessful) go(s.screen_auth) else showMessage(authErrorMessage(result.exception))
+                }
+        }
+    }
+
+    /** Registro con correo y contraseña; el nombre se guarda en el perfil de Firebase. */
+    private fun setupRegisterScreen() {
+        val name = findViewById<EditText>(v.name)
+        val email = findViewById<EditText>(v.email)
+        val password = findViewById<EditText>(v.password)
+        val terms = findViewById<CheckBox>(v.terms)
+        val createButton = findViewById<Button>(v.create)
+        createButton.setOnClickListener {
+            name.error = CredentialValidator.nameError(name.text.toString())
+            email.error = CredentialValidator.emailError(email.text.toString())
+            password.error = CredentialValidator.newPasswordError(password.text.toString())
+            if (name.error != null || email.error != null || password.error != null) return@setOnClickListener
+            if (!terms.isChecked) return@setOnClickListener showMessage("Debes aceptar los términos y la política de privacidad.")
+
+            createButton.isEnabled = false
+            auth.createUserWithEmailAndPassword(email.text.toString().trim(), password.text.toString())
+                .addOnCompleteListener(this) { result ->
+                    val user = if (result.isSuccessful) result.result.user else null
+                    if (user == null) {
+                        createButton.isEnabled = true
+                        return@addOnCompleteListener showMessage(authErrorMessage(result.exception))
+                    }
+                    val profile = UserProfileChangeRequest.Builder().setDisplayName(name.text.toString().trim()).build()
+                    // La cuenta ya existe: se continúa aunque no se haya podido guardar el nombre.
+                    user.updateProfile(profile).addOnCompleteListener(this) {
+                        if (stack.lastOrNull() == s.screen_register) go(s.screen_auth)
+                    }
+                }
+        }
+    }
+
+    private fun signOut() {
+        auth.signOut()
+        go(s.screen_login)
+    }
+
+    private fun showMessage(text: String) = Toast.makeText(this, text, Toast.LENGTH_LONG).show()
 
     /** Marca en azul el ítem de la barra inferior de la pantalla actual. */
     private fun highlightAdminBar(screen: Int) {

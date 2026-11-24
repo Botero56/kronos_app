@@ -5,8 +5,9 @@ verificación biométrica y ubicación, y el administrador ve el dashboard, los 
 las solicitudes de permiso y los reportes.
 
 Este repositorio contiene el **prototipo visual**: todas las pantallas están hechas en
-**layouts XML** a partir del diseño de Figma y están **conectadas entre sí**, pero **no tienen
-lógica** (no se validan campos, no se guardan datos, no hay backend).
+**layouts XML** a partir del diseño de Figma y están **conectadas entre sí**. El inicio de sesión,
+el registro y el cierre de sesión funcionan con **Firebase Authentication** (correo y contraseña);
+las demás pantallas todavía muestran datos de ejemplo.
 
 **Integrantes del grupo:** Sebastian Giraldo · Sebastian Gonzalez · Alejandro Pacheco · Samuel Botero
 
@@ -24,6 +25,8 @@ Es una versión de prueba (firmada con la llave de depuración), no la de la Pla
 
 ## Cómo ejecutarlo
 
+0. Poner `google-services.json` (se descarga de la consola de Firebase, proyecto `kronnosapp`) en
+   `app/`, al lado de `app/build.gradle.kts`. No está en el repositorio.
 1. Abrir la carpeta en **Android Studio** y esperar el *Gradle Sync*.
 2. Conectar un teléfono con **depuración USB** activada (o crear un emulador).
 3. Pulsar **Run ▶**.
