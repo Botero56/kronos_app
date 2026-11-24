@@ -33,7 +33,7 @@
 
         <EditText
             style="@style/Field"
-            android:hint="nombre@empresa.com"
+            android:id="@+id/email" android:hint="nombre@empresa.com"
             android:inputType="textEmailAddress" />
 
         <Button

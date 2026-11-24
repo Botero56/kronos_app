@@ -22,43 +22,13 @@
                 style="@style/Field"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
-                android:hint="Buscar empleado..." />
+                android:id="@+id/search" android:hint="Buscar empleado..." />
 
-            <LinearLayout style="@style/Row">
-                <TextView style="@style/Txt.Avatar" android:text="JP" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Juan Pérez" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="Operario · Sede Bello" android:textSize="11sp" />
-                </LinearLayout>
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout style="@style/Row">
-                <TextView style="@style/Txt.Avatar" android:text="ML" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="María López" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="Supervisora · Sede Bello" android:textSize="11sp" />
-                </LinearLayout>
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout style="@style/Row">
-                <TextView style="@style/Txt.Avatar" android:text="CR" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Carlos Rúa" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="Operario · Sede Medellín" android:textSize="11sp" />
-                </LinearLayout>
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout style="@style/Row">
-                <TextView style="@style/Txt.Avatar" android:text="AT" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Ana Torres" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="Operaria · Sede Bello" android:textSize="11sp" />
-                </LinearLayout>
-            </LinearLayout>
-            <View style="@style/Divider" />
+            <LinearLayout
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
             <Button
                 android:id="@+id/add"

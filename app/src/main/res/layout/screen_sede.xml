@@ -18,46 +18,10 @@
 
         <!-- tab_a / tab_b: MainActivity marca la sede tocada -->
         <LinearLayout
-            android:id="@+id/tab_a"
+            android:id="@+id/list"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/bg_sede_choice"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp">
-
-            <TextView
-                style="@style/Txt.Medium"
-                android:text="Sede Bello" />
-
-            <TextView
-                style="@style/Txt.Sub"
-                android:layout_marginTop="4dp"
-                android:text="Cra. 50 #45-12"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/tab_b"
-            android:layout_width="match_parent"
-            android:layout_height="64dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/bg_sede_choice"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingHorizontal="20dp">
-
-            <TextView
-                style="@style/Txt.Medium"
-                android:text="Sede Medellín centro" />
-
-            <TextView
-                style="@style/Txt.Sub"
-                android:layout_marginTop="4dp"
-                android:text="Cl. 30 #80-20"
-                android:textSize="12sp" />
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
 
         <Button
             android:id="@+id/next"

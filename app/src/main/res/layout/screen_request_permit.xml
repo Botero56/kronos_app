@@ -17,7 +17,7 @@
 
         <TextView
             style="@style/Select"
-            android:text="Cita médica" />
+            android:id="@+id/permit_type" android:hint="Seleccionar tipo" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
 
                 <TextView
                     style="@style/Select"
-                    android:text="12 sep 2026" />
+                    android:id="@+id/start_date" android:hint="Seleccionar fecha" />
             </LinearLayout>
 
             <Space
@@ -47,7 +47,7 @@
 
                 <TextView
                     style="@style/Select"
-                    android:text="12 sep 2026" />
+                    android:id="@+id/end_date" android:hint="Seleccionar fecha" />
             </LinearLayout>
         </LinearLayout>
 
@@ -59,7 +59,7 @@
             style="@style/Field"
             android:layout_height="110dp"
             android:gravity="top"
-            android:hint="Cita médica en horas de la mañana..."
+            android:id="@+id/reason" android:hint="Describe el motivo"
             android:inputType="textMultiLine"
             android:paddingVertical="12dp" />
 

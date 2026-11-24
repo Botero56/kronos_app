@@ -1,0 +1,73 @@
+rules_version = '2';
+
+// Reglas de seguridad de Firestore para Kronos.
+// Se publican en la consola de Firebase: Firestore Database > Reglas.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function myProfile() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function inCompany(companyId) {
+      return signedIn() && myProfile().companyId == companyId;
+    }
+
+    function isAdminOf(companyId) {
+      return inCompany(companyId) && myProfile().role == 'admin';
+    }
+
+    function isOwn(data) {
+      return data.userId == request.auth.uid;
+    }
+
+    match /users/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdminOf(resource.data.companyId));
+      // El administrador crea su perfil al registrar su empresa (en el mismo lote que la empresa).
+      allow create: if signedIn() && (
+        (request.auth.uid == uid
+          && request.resource.data.role == 'admin'
+          && getAfter(/databases/$(database)/documents/companies/$(request.resource.data.companyId)).data.ownerId == request.auth.uid)
+        || (isAdminOf(request.resource.data.companyId) && request.resource.data.role == 'employee')
+      );
+      allow update: if isAdminOf(resource.data.companyId)
+        && request.resource.data.companyId == resource.data.companyId;
+    }
+
+    match /companies/{companyId} {
+      allow read: if inCompany(companyId);
+      allow create: if signedIn() && request.resource.data.ownerId == request.auth.uid;
+      allow update: if isAdminOf(companyId);
+
+      match /sedes/{sedeId} {
+        allow read: if inCompany(companyId);
+        allow write: if isAdminOf(companyId);
+      }
+
+      // Un marcaje por empleado y día: se crea al entrar y solo se le agrega la salida.
+      match /attendance/{recordId} {
+        allow read: if isAdminOf(companyId) || (inCompany(companyId) && isOwn(resource.data));
+        allow create: if inCompany(companyId) && isOwn(request.resource.data);
+        allow update: if inCompany(companyId) && isOwn(resource.data)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['checkOut']);
+      }
+
+      match /requests/{requestId} {
+        allow read: if isAdminOf(companyId) || (inCompany(companyId) && isOwn(resource.data));
+        allow create: if inCompany(companyId) && isOwn(request.resource.data)
+          && request.resource.data.status == 'pending';
+        allow update: if isAdminOf(companyId);
+        allow delete: if inCompany(companyId) && isOwn(resource.data) && resource.data.status == 'pending';
+      }
+
+      match /alerts/{alertId} {
+        allow read: if isAdminOf(companyId) || (inCompany(companyId) && isOwn(resource.data));
+        allow create: if inCompany(companyId) && isOwn(request.resource.data);
+      }
+    }
+  }
+}

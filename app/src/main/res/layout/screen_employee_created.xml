@@ -61,12 +61,12 @@
                     style="@style/Txt.Avatar"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:text="AR"
+                    android:id="@+id/avatar"
                     android:textSize="14sp" />
 
                 <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Ana Rodríguez" />
-                    <TextView style="@style/Txt.Sub" android:text="Auxiliar administrativa" android:textSize="12sp" />
+                    <TextView style="@style/Txt" android:id="@+id/employee_name" />
+                    <TextView style="@style/Txt.Sub" android:id="@+id/employee_position" android:textSize="12sp" />
                 </LinearLayout>
             </LinearLayout>
 

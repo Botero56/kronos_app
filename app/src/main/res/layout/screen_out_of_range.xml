@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="Te encuentras a 320 m de la Sede Bello. Acércate al lugar de trabajo para poder marcar." />
+            android:id="@+id/distance_message" />
 
         <TextView
             style="@style/Txt.Small"
@@ -37,7 +37,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_card"
             android:gravity="center"
-            android:text="[ mapa ]" />
+            android:id="@+id/map_info" />
 
         <Button
             android:id="@+id/retry"

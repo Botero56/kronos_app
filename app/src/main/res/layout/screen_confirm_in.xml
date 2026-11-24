@@ -25,13 +25,13 @@
         <TextView
             style="@style/Txt.Medium"
             android:layout_marginTop="8dp"
-            android:text="08:01 a.m."
+            android:id="@+id/time"
             android:textSize="28sp" />
 
         <TextView
             style="@style/Txt.Sub"
             android:layout_marginTop="8dp"
-            android:text="Sede Bello" />
+            android:id="@+id/sede_name" />
 
         <TextView
             style="@style/Txt.Sub"

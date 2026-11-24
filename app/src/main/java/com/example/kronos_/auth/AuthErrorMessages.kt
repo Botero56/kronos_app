@@ -7,6 +7,10 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.firestore.FirebaseFirestoreException
+
+/** Error con un mensaje ya pensado para mostrarlo tal cual al usuario. */
+class UserFacingException(message: String) : Exception(message)
 
 /** Convierte un error de Firebase Authentication en un mensaje claro para el usuario. */
 fun authErrorMessage(error: Exception?): String = when (error) {
@@ -21,4 +25,16 @@ fun authErrorMessage(error: Exception?): String = when (error) {
     is FirebaseAuthException if error.errorCode == "ERROR_OPERATION_NOT_ALLOWED" ->
         "El acceso con correo y contraseña no está habilitado en Firebase."
     else -> "No se pudo completar la operación. Inténtalo de nuevo."
+}
+
+/** Mensaje para cualquier error de la app: propios, de la base de datos o de autenticación. */
+fun errorMessage(error: Throwable?): String = when (error) {
+    is UserFacingException -> error.message.orEmpty()
+    is FirebaseFirestoreException -> when (error.code) {
+        FirebaseFirestoreException.Code.PERMISSION_DENIED -> "No tienes permiso para hacer esto."
+        FirebaseFirestoreException.Code.UNAVAILABLE -> "No hay conexión con el servidor. Inténtalo de nuevo."
+        else -> "No se pudieron cargar o guardar los datos. Inténtalo de nuevo."
+    }
+    is Exception -> authErrorMessage(error)
+    else -> "Ocurrió un error inesperado."
 }

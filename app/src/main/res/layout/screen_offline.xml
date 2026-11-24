@@ -39,7 +39,7 @@
 
             <TextView
                 style="@style/Txt.Medium"
-                android:text="3"
+                android:id="@+id/pending_count"
                 android:textSize="22sp" />
         </LinearLayout>
     </LinearLayout>

@@ -15,7 +15,7 @@
             <TextView
                 style="@style/Txt.TitleBar"
                 android:layout_gravity="center"
-                android:text="Asistencia_1-7_sep_2026.pdf"
+                android:id="@+id/file_name"
                 android:textSize="14sp" />
 
             <ImageButton
@@ -66,7 +66,7 @@
             <TextView
                 style="@style/Txt.Small"
                 android:layout_marginTop="2dp"
-                android:text="1 – 7 sep 2026 · Todas las sedes · Todos los empleados" />
+                android:id="@+id/report_filters" />
 
             <!-- Resumen -->
             <LinearLayout
@@ -77,22 +77,22 @@
 
                 <LinearLayout style="@style/Col">
                     <TextView style="@style/Txt.Small" android:text="Presentes" android:textSize="11sp" />
-                    <TextView style="@style/Txt.Medium" android:text="42" android:textSize="16sp" />
+                    <TextView style="@style/Txt.Medium" android:id="@+id/stat_present" android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/Col">
                     <TextView style="@style/Txt.Small" android:text="Tarde" android:textSize="11sp" />
-                    <TextView style="@style/Txt.Medium" android:text="5" android:textColor="@color/warn" android:textSize="16sp" />
+                    <TextView style="@style/Txt.Medium" android:id="@+id/stat_late" android:textColor="@color/warn" android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/Col">
                     <TextView style="@style/Txt.Small" android:text="Ausentes" android:textSize="11sp" />
-                    <TextView style="@style/Txt.Medium" android:text="3" android:textColor="@color/bad" android:textSize="16sp" />
+                    <TextView style="@style/Txt.Medium" android:id="@+id/stat_absent" android:textColor="@color/bad" android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout style="@style/Col">
                     <TextView style="@style/Txt.Small" android:text="Puntualidad" android:textSize="11sp" />
-                    <TextView style="@style/Txt.Medium" android:text="91%" android:textColor="@color/ok" android:textSize="16sp" />
+                    <TextView style="@style/Txt.Medium" android:id="@+id/stat_punctuality" android:textColor="@color/ok" android:textSize="16sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -111,37 +111,11 @@
                 <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:fontFamily="sans-serif-medium" android:gravity="end" android:text="Estado" android:textSize="11sp" />
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp">
-                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:text="Juan Pérez" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:text="08:01" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:text="17:00" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:text="A tiempo" android:textColor="@color/ok" android:textSize="11sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp">
-                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:text="María López" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:text="08:22" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:text="17:10" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:text="Tarde" android:textColor="@color/warn" android:textSize="11sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp">
-                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:text="Carlos Rúa" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:text="—" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:text="—" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:text="Ausente" android:textColor="@color/bad" android:textSize="11sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:padding="8dp">
-                <TextView style="@style/Txt.Fill" android:layout_weight="2" android:text="Ana Torres" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:text="07:58" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:text="17:02" android:textSize="11sp" />
-                <TextView style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:text="A tiempo" android:textColor="@color/ok" android:textSize="11sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
+            <LinearLayout
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
             <TextView
                 style="@style/Txt.Small"

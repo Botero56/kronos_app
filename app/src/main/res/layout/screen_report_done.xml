@@ -53,13 +53,13 @@
 
             <TextView
                 style="@style/Txt.Medium"
-                android:text="Asistencia_1-7_sep_2026.pdf"
+                android:id="@+id/file_name"
                 android:textSize="13sp" />
 
             <TextView
                 style="@style/Txt.Small"
                 android:layout_marginTop="4dp"
-                android:text="156 KB · Generado hace instantes"
+                android:id="@+id/file_info"
                 android:textSize="11sp" />
         </LinearLayout>
 

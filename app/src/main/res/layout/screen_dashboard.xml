@@ -26,7 +26,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:background="?attr/selectableItemBackground"
-                    android:text="Dashboard · Sede Bello"
+                    android:text="Dashboard"
                     android:textSize="18sp" />
 
                 <ImageButton
@@ -50,7 +50,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1">
                     <TextView style="@style/Txt.Sub" android:text="Presentes" android:textSize="12sp" />
-                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="42" android:textSize="22sp" />
+                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:id="@+id/stat_present" android:textSize="22sp" />
                 </LinearLayout>
 
                 <Space android:layout_width="12dp" android:layout_height="0dp" />
@@ -61,7 +61,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1">
                     <TextView style="@style/Txt.Sub" android:text="Tarde" android:textSize="12sp" />
-                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="5" android:textColor="@color/warn" android:textSize="22sp" />
+                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:id="@+id/stat_late" android:textColor="@color/warn" android:textSize="22sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -77,7 +77,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1">
                     <TextView style="@style/Txt.Sub" android:text="Ausentes" android:textSize="12sp" />
-                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="3" android:textColor="@color/bad" android:textSize="22sp" />
+                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:id="@+id/stat_absent" android:textColor="@color/bad" android:textSize="22sp" />
                 </LinearLayout>
 
                 <Space android:layout_width="12dp" android:layout_height="0dp" />
@@ -88,7 +88,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1">
                     <TextView style="@style/Txt.Sub" android:text="Puntualidad" android:textSize="12sp" />
-                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:text="91%" android:textColor="@color/ok" android:textSize="22sp" />
+                    <TextView style="@style/Txt.Medium" android:layout_marginTop="6dp" android:id="@+id/stat_punctuality" android:textColor="@color/ok" android:textSize="22sp" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -97,38 +97,11 @@
                 android:layout_marginTop="24dp"
                 android:text="Marcajes recientes" />
 
-            <LinearLayout style="@style/Row">
-                <TextView style="@style/Txt.Avatar" android:text="JP" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Juan Pérez" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="08:01" android:textSize="11sp" />
-                </LinearLayout>
-                <TextView style="@style/Txt" android:text="A tiempo" android:textColor="@color/ok" android:textSize="12sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout style="@style/Row">
-                <TextView style="@style/Txt.Avatar" android:text="ML" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="María López" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="08:22" android:textSize="11sp" />
-                </LinearLayout>
-                <TextView style="@style/Txt" android:text="Tarde" android:textColor="@color/warn" android:textSize="12sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
-
             <LinearLayout
-                android:id="@+id/absent"
-                style="@style/Row"
-                android:background="?attr/selectableItemBackground">
-                <TextView style="@style/Txt.Avatar" android:text="CR" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Carlos Rúa" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="—" android:textSize="11sp" />
-                </LinearLayout>
-                <TextView style="@style/Txt" android:text="Ausente" android:textColor="@color/bad" android:textSize="12sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
             <Button
                 android:id="@+id/report"

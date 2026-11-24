@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fila genérica de las listas: iniciales, título, detalle y estado. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/row"
+        style="@style/Row"
+        android:background="?attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/avatar"
+            style="@style/Txt.Avatar"
+            android:visibility="gone" />
+
+        <LinearLayout style="@style/Col">
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/Txt"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/subtitle"
+                style="@style/Txt.Small"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/Txt"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+</LinearLayout>

@@ -8,7 +8,16 @@ object CredentialValidator {
     private val emailFormat = Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
 
     fun nameError(name: String): String? =
-        if (name.isBlank()) "Escribe tu nombre completo." else null
+        if (name.isBlank()) "Escribe el nombre completo." else null
+
+    fun requiredError(value: String, message: String): String? = if (value.isBlank()) message else null
+
+    fun documentError(document: String): String? = when {
+        document.isBlank() -> "Escribe el número de documento."
+        !document.trim().all { it.isDigit() } || document.trim().length !in 5..15 ->
+            "El documento debe tener entre 5 y 15 números."
+        else -> null
+    }
 
     fun emailError(email: String): String? = when {
         email.isBlank() -> "Escribe tu correo electrónico."

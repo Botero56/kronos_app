@@ -9,7 +9,13 @@
 
         <TextView
             style="@style/Txt.Title"
-            android:text="Nueva sede" />
+            android:id="@+id/title" android:text="Nueva sede" />
+
+        <TextView
+            android:id="@+id/sede_picker"
+            style="@style/Select"
+            android:layout_marginTop="12dp"
+            android:text="Crear una sede nueva" />
 
         <TextView
             style="@style/Txt.Label"
@@ -17,7 +23,7 @@
 
         <EditText
             style="@style/Field"
-            android:text="Sede Bello" />
+            android:id="@+id/sede_name" android:hint="Nombre de la sede" />
 
         <TextView
             style="@style/Txt.Label"
@@ -25,19 +31,31 @@
 
         <EditText
             style="@style/Field"
-            android:text="Cra. 50 #45-12, Bello" />
+            android:id="@+id/sede_address" android:hint="Dirección" />
 
         <TextView
             style="@style/Txt.Label"
             android:text="Ubicación y radio autorizado" />
 
         <TextView
+            android:id="@+id/coordinates"
             style="@style/Txt.Small"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@drawable/bg_card"
-            android:gravity="center"
-            android:text="[ mapa · radio de 150 m ]" />
+            android:text="Sin ubicación. Ve a la sede y toca el botón." />
+
+        <Button
+            android:id="@+id/use_location"
+            style="@style/Btn.Secondary"
+            android:layout_marginTop="8dp"
+            android:text="Usar mi ubicación actual" />
+
+        <TextView style="@style/Txt.Label" android:text="Radio autorizado (metros)" />
+        <EditText android:id="@+id/radius" style="@style/Field" android:hint="150" android:inputType="number" />
+
+        <TextView style="@style/Txt.Label" android:text="Hora de entrada (HH:mm)" />
+        <EditText android:id="@+id/start_time" style="@style/Field" android:hint="07:30" android:inputType="time" />
+
+        <TextView style="@style/Txt.Label" android:text="Hora de salida (HH:mm)" />
+        <EditText android:id="@+id/end_time" style="@style/Field" android:hint="17:00" android:inputType="time" />
 
         <Button
             android:id="@+id/save"

@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="6dp"
             android:gravity="center"
-            android:text="El reporte se guardó en la carpeta Descargas de tu dispositivo." />
+            android:text="El reporte se guardó en la ubicación que elegiste." />
 
         <LinearLayout
             style="@style/Card"
@@ -49,13 +49,13 @@
 
             <TextView
                 style="@style/Txt.Medium"
-                android:text="Asistencia_1-7_sep_2026.pdf"
+                android:id="@+id/file_name"
                 android:textSize="13sp" />
 
             <TextView
                 style="@style/Txt.Small"
                 android:layout_marginTop="4dp"
-                android:text="156 KB · Descargas/Kronos"
+                android:id="@+id/file_info"
                 android:textSize="11sp" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator

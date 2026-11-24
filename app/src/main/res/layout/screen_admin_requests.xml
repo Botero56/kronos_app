@@ -24,6 +24,7 @@
                 android:text="Bandeja de entrada · Admin" />
 
             <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabs"
                 android:background="@color/surface"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,56 +48,10 @@
             </com.google.android.material.tabs.TabLayout>
 
             <LinearLayout
-                android:id="@+id/r1"
-                style="@style/Row"
-                android:background="?attr/selectableItemBackground">
-                <TextView style="@style/Txt.Avatar" android:text="JP" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Juan Pérez" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="Cita médica · 12 sep 2026" android:textSize="11sp" />
-                </LinearLayout>
-                <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout
-                android:id="@+id/r2"
-                style="@style/Row"
-                android:background="?attr/selectableItemBackground">
-                <TextView style="@style/Txt.Avatar" android:text="ML" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="María López" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="Vacaciones · 15 – 22 oct 2026" android:textSize="11sp" />
-                </LinearLayout>
-                <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout
-                android:id="@+id/r3"
-                style="@style/Row"
-                android:background="?attr/selectableItemBackground">
-                <TextView style="@style/Txt.Avatar" android:text="CR" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Carlos Rúa" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="Diligencia personal · 28 sep 2026" android:textSize="11sp" />
-                </LinearLayout>
-                <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
-
-            <LinearLayout
-                android:id="@+id/r4"
-                style="@style/Row"
-                android:background="?attr/selectableItemBackground">
-                <TextView style="@style/Txt.Avatar" android:text="AT" />
-                <LinearLayout style="@style/Col">
-                    <TextView style="@style/Txt" android:text="Ana Torres" android:textSize="13sp" />
-                    <TextView style="@style/Txt.Small" android:text="Calamidad doméstica · 5 oct 2026" android:textSize="11sp" />
-                </LinearLayout>
-                <TextView style="@style/Txt" android:text="Pendiente" android:textColor="@color/warn" android:textSize="12sp" />
-            </LinearLayout>
-            <View style="@style/Divider" />
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
         </LinearLayout>
     </ScrollView>
 

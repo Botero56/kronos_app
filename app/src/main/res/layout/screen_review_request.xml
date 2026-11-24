@@ -14,28 +14,28 @@
         <TextView
             style="@style/Txt.Pill"
             android:layout_marginTop="16dp"
-            android:text="Pendiente de revisión"
+            android:id="@+id/status"
             android:textColor="@color/warn" />
 
         <TextView style="@style/Txt.Small" android:layout_marginTop="16dp" android:text="Empleado" />
-        <TextView style="@style/Txt" android:text="Juan Pérez · Operario · Sede Bello" />
+        <TextView style="@style/Txt" android:id="@+id/employee" />
 
         <TextView style="@style/Txt.Small" android:layout_marginTop="12dp" android:text="Tipo de permiso" />
-        <TextView style="@style/Txt" android:text="Cita médica" />
+        <TextView style="@style/Txt" android:id="@+id/type" />
 
         <TextView style="@style/Txt.Small" android:layout_marginTop="12dp" android:text="Fecha" />
-        <TextView style="@style/Txt" android:text="12 sep 2026" />
+        <TextView style="@style/Txt" android:id="@+id/dates" />
 
         <TextView style="@style/Txt.Small" android:layout_marginTop="12dp" android:text="Motivo" />
-        <TextView style="@style/Txt" android:text="Cita médica en horas de la mañana en la EPS para chequeo general." />
+        <TextView style="@style/Txt" android:id="@+id/reason" />
 
         <TextView
             style="@style/Txt.Medium"
             android:layout_marginTop="20dp"
             android:text="Seguimiento" />
 
-        <TextView style="@style/Txt.Sub" android:layout_marginTop="6dp" android:text="● Solicitud enviada — 8 sep, 10:20 a.m." />
-        <TextView style="@style/Txt.Sub" android:layout_marginTop="6dp" android:text="○ En revisión por el administrador" />
+        <TextView style="@style/Txt.Sub" android:layout_marginTop="6dp" android:id="@+id/sent_line" />
+        <TextView style="@style/Txt.Sub" android:layout_marginTop="6dp" android:id="@+id/review_line" />
 
         <LinearLayout
             android:layout_width="match_parent"

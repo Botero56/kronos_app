@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fila de la tabla del reporte: empleado, entrada, salida y estado. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <TextView android:id="@+id/employee" style="@style/Txt.Fill" android:layout_weight="2" android:textSize="11sp" />
+        <TextView android:id="@+id/check_in" style="@style/Txt.Fill" android:textSize="11sp" />
+        <TextView android:id="@+id/check_out" style="@style/Txt.Fill" android:textSize="11sp" />
+        <TextView android:id="@+id/status" style="@style/Txt.Fill" android:layout_weight="1.2" android:gravity="end" android:textSize="11sp" />
+    </LinearLayout>
+
+    <View style="@style/Divider" />
+</LinearLayout>

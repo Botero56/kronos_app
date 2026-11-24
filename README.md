@@ -5,9 +5,10 @@ verificación biométrica y ubicación, y el administrador ve el dashboard, los 
 las solicitudes de permiso y los reportes.
 
 Este repositorio contiene el **prototipo visual**: todas las pantallas están hechas en
-**layouts XML** a partir del diseño de Figma y están **conectadas entre sí**. El inicio de sesión,
-el registro y el cierre de sesión funcionan con **Firebase Authentication** (correo y contraseña);
-las demás pantallas todavía muestran datos de ejemplo.
+**layouts XML** a partir del diseño de Figma y están **conectadas entre sí**. Las cuentas usan
+**Firebase Authentication** (correo y contraseña) y los datos (empresas, sedes, empleados, marcajes,
+solicitudes y alertas) se guardan en **Cloud Firestore**. Las reglas de seguridad están en `firestore.rules`
+y se publican en la consola de Firebase (Firestore Database → Reglas).
 
 **Integrantes del grupo:** Sebastian Giraldo · Sebastian Gonzalez · Alejandro Pacheco · Samuel Botero
 

@@ -35,13 +35,13 @@
 
             <TextView
                 style="@style/Txt.Sub"
-                android:text="Lunes, 7 de septiembre"
+                android:id="@+id/today"
                 android:textColor="@color/hint" />
 
             <TextView
                 style="@style/Txt.Medium"
                 android:layout_marginTop="4dp"
-                android:text="Hola, Camila"
+                android:id="@+id/greeting"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -58,7 +58,7 @@
             <TextView
                 style="@style/Txt.Sub"
                 android:layout_gravity="center_horizontal"
-                android:text="Estás fuera de turno" />
+                android:id="@+id/shift_status" />
 
             <Button
                 android:id="@+id/check_in"
@@ -80,7 +80,7 @@
             style="@style/Txt.Link"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="40dp"
-            android:text="Sede Bello · dentro del rango autorizado"
+            android:text="Verificar ubicación"
             android:textColor="@color/ok" />
 
         <LinearLayout
@@ -104,7 +104,7 @@
                 <TextView
                     style="@style/Txt.Medium"
                     android:layout_marginTop="6dp"
-                    android:text="07:58"
+                    android:id="@+id/last_entry_time"
                     android:textSize="18sp" />
             </LinearLayout>
 
@@ -127,7 +127,7 @@
                 <TextView
                     style="@style/Txt.Medium"
                     android:layout_marginTop="6dp"
-                    android:text="32h 40m"
+                    android:id="@+id/week_hours_value"
                     android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>

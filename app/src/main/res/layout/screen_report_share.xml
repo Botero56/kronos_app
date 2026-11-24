@@ -18,13 +18,13 @@
 
             <TextView
                 style="@style/Txt.Medium"
-                android:text="Asistencia_1-7_sep_2026.pdf"
+                android:id="@+id/file_name"
                 android:textSize="13sp" />
 
             <TextView
                 style="@style/Txt.Small"
                 android:layout_marginTop="4dp"
-                android:text="156 KB · PDF"
+                android:id="@+id/file_info"
                 android:textSize="11sp" />
         </LinearLayout>
 
@@ -34,7 +34,7 @@
 
         <EditText
             style="@style/Field"
-            android:hint="correo@empresa.com"
+            android:id="@+id/share_email" android:hint="correo@empresa.com"
             android:inputType="textEmailAddress" />
 
         <TextView
@@ -45,7 +45,7 @@
             style="@style/Field"
             android:layout_height="88dp"
             android:gravity="top"
-            android:hint="Adjunto el reporte de asistencia de la semana."
+            android:id="@+id/share_message" android:hint="Adjunto el reporte de asistencia de la semana."
             android:inputType="textMultiLine"
             android:paddingVertical="12dp" />
 
@@ -60,6 +60,7 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/channel_email"
                 style="@style/Tab"
                 android:layout_height="80dp">
 
@@ -82,6 +83,7 @@
                 android:layout_height="0dp" />
 
             <LinearLayout
+                android:id="@+id/channel_whatsapp"
                 style="@style/Tab"
                 android:layout_height="80dp">
 
@@ -104,6 +106,7 @@
                 android:layout_height="0dp" />
 
             <LinearLayout
+                android:id="@+id/channel_other"
                 style="@style/Tab"
                 android:layout_height="80dp">
 
@@ -117,7 +120,7 @@
                 <TextView
                     style="@style/Txt.Sub"
                     android:layout_marginTop="8dp"
-                    android:text="Copiar enlace"
+                    android:text="Otras apps"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>

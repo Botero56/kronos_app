@@ -13,13 +13,13 @@
             android:text="Generar reporte" />
 
         <TextView style="@style/Txt.Label" android:text="Rango de fechas" />
-        <TextView style="@style/Select" android:text="1 – 7 sep 2026" />
+        <TextView style="@style/Select" android:id="@+id/range" android:hint="Seleccionar fechas" />
 
         <TextView style="@style/Txt.Label" android:text="Sede" />
-        <TextView style="@style/Select" android:text="Todas las sedes" />
+        <TextView style="@style/Select" android:id="@+id/report_sede" android:text="Todas las sedes" />
 
         <TextView style="@style/Txt.Label" android:text="Empleado" />
-        <TextView style="@style/Select" android:text="Todos los empleados" />
+        <TextView style="@style/Select" android:id="@+id/report_employee" android:text="Todos los empleados" />
 
         <TextView style="@style/Txt.Label" android:text="Formato de exportación" />
 

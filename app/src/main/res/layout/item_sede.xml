@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Opción de sede en la pantalla "Elige tu sede". -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:layout_marginTop="12dp"
+    android:background="@drawable/bg_sede_choice"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp">
+
+    <TextView
+        android:id="@+id/sede_name"
+        style="@style/Txt.Medium" />
+
+    <TextView
+        android:id="@+id/sede_address"
+        style="@style/Txt.Sub"
+        android:layout_marginTop="4dp"
+        android:textSize="12sp" />
+</LinearLayout>
