@@ -21,6 +21,9 @@
         <TextView style="@style/Txt.Label" android:text="Correo electrónico" />
         <EditText style="@style/Field" android:id="@+id/email" android:hint="correo@empresa.com" android:inputType="textEmailAddress" />
 
+        <TextView style="@style/Txt.Label" android:text="Contraseña inicial" />
+        <EditText style="@style/Field" android:id="@+id/password" android:hint="Mínimo 6 caracteres" android:inputType="textPassword" />
+
         <TextView style="@style/Txt.Label" android:text="Cargo" />
         <EditText android:id="@+id/position" style="@style/Field" android:hint="Escribe el cargo" android:inputType="textCapSentences" />
 
@@ -33,7 +36,7 @@
 
             <TextView
                 style="@style/Txt.Small"
-                android:text="El empleado recibirá un correo para activar su acceso."
+                android:text="El empleado entra con su correo y esta contraseña. Después puede cambiarla en su perfil."
                 android:textColor="@color/link" />
         </LinearLayout>
 

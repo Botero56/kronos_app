@@ -19,7 +19,6 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.ZoneId
 import java.util.Date
-import java.util.UUID
 
 /**
  * Acceso a Firestore. Estructura:
@@ -85,8 +84,8 @@ object KronosRepository {
     }
 
     /**
-     * Crea la cuenta de un empleado sin cerrar la sesión del administrador (usa una instancia aparte de Firebase)
-     * y le envía un correo para que elija su contraseña.
+     * Crea la cuenta de un empleado con la contraseña inicial que escribe el administrador,
+     * sin cerrar la sesión del administrador (usa una instancia aparte de Firebase).
      */
     suspend fun createEmployee(
         context: Context,
@@ -94,14 +93,14 @@ object KronosRepository {
         name: String,
         document: String,
         email: String,
+        password: String,
         position: String,
         sedeId: String,
     ): UserProfile {
         val creatorApp = FirebaseApp.getApps(context).firstOrNull { it.name == EMPLOYEE_CREATOR_APP }
             ?: FirebaseApp.initializeApp(context, FirebaseApp.getInstance().options, EMPLOYEE_CREATOR_APP)
-        val creatorAuth = FirebaseAuth.getInstance(creatorApp).apply { setLanguageCode("es") }
-        val temporaryPassword = UUID.randomUUID().toString()
-        val newUser = creatorAuth.createUserWithEmailAndPassword(email, temporaryPassword).await().user
+        val creatorAuth = FirebaseAuth.getInstance(creatorApp)
+        val newUser = creatorAuth.createUserWithEmailAndPassword(email, password).await().user
             ?: throw UserFacingException("No se pudo crear la cuenta del empleado.")
         val profile = UserProfile(
             id = newUser.uid, name = name, email = email, document = document, position = position,
@@ -110,16 +109,9 @@ object KronosRepository {
         try {
             users().document(newUser.uid).set(profile.toMap()).await()
         } catch (error: Exception) {
+            // Sin perfil la cuenta no sirve: se borra para poder crearla de nuevo.
             newUser.delete()
-            creatorAuth.signOut()
             throw error
-        }
-        try {
-            creatorAuth.sendPasswordResetEmail(email).await()
-        } catch (_: Exception) {
-            throw UserFacingException(
-                "El empleado quedó creado, pero no se pudo enviar el correo. Pídele que use \"¿Olvidaste tu contraseña?\".",
-            )
         } finally {
             creatorAuth.signOut()
         }

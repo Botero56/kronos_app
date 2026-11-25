@@ -95,11 +95,12 @@ internal fun MainActivity.setupEmployeesScreen() {
     }
 }
 
-/** El administrador crea la cuenta del empleado; al empleado le llega un correo para elegir su contraseña. */
+/** El administrador crea la cuenta del empleado con una contraseña inicial que el empleado puede cambiar después. */
 internal fun MainActivity.setupNewEmployeeScreen() {
     val name = findViewById<EditText>(v.name)
     val document = findViewById<EditText>(v.document)
     val email = findViewById<EditText>(v.email)
+    val password = findViewById<EditText>(v.password)
     val position = findViewById<EditText>(v.position)
     val sedeField = findViewById<TextView>(v.sede_select)
     val saveButton = findViewById<Button>(v.save)
@@ -116,15 +117,16 @@ internal fun MainActivity.setupNewEmployeeScreen() {
         name.error = CredentialValidator.nameError(name.text.toString())
         document.error = CredentialValidator.documentError(document.text.toString())
         email.error = CredentialValidator.emailError(email.text.toString())
+        password.error = CredentialValidator.newPasswordError(password.text.toString())
         position.error = CredentialValidator.requiredError(position.text.toString(), "Escribe el cargo.")
-        if (listOf(name, document, email, position).any { it.error != null }) return@setOnClickListener
+        if (listOf(name, document, email, password, position).any { it.error != null }) return@setOnClickListener
         val chosenSede = sede ?: return@setOnClickListener showMessage("Elige la sede del empleado.")
 
         launchTask(saveButton) {
             Session.createdEmployee = KronosRepository.createEmployee(
                 context = this, companyId = Session.requireProfile().companyId,
                 name = name.trimmedText(), document = document.trimmedText(), email = email.trimmedText(),
-                position = position.trimmedText(), sedeId = chosenSede.id,
+                password = password.text.toString(), position = position.trimmedText(), sedeId = chosenSede.id,
             )
             goIfStillOn(s.screen_new_employee, s.screen_employee_created)
         }

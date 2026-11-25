@@ -3,6 +3,7 @@ package com.example.kronos_.screens
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -121,10 +122,16 @@ internal fun MainActivity.setupRecoverScreen() {
     }
 }
 
-/** Después del login se confirma la identidad con la huella, el rostro o el patrón del teléfono. */
+/** Después del login se confirma la identidad con el patrón o la huella del teléfono, según la pestaña elegida. */
 internal fun MainActivity.setupIdentityCheckScreen() {
+    val patternTab = findViewById<View>(v.tab_a)
     findViewById<Button>(v.verify).setOnClickListener {
-        verifyIdentity("Verificación de identidad", continueIfUnavailable = true) {
+        val method = if (patternTab.isSelected) {
+            MainActivity.IdentityMethod.SCREEN_LOCK
+        } else {
+            MainActivity.IdentityMethod.FINGERPRINT
+        }
+        verifyIdentity("Verificación de identidad", method, continueIfUnavailable = true) {
             goIfStillOn(s.screen_auth, s.screen_auth_success)
         }
     }

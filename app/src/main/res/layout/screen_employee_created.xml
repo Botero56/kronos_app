@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_marginTop="6dp"
             android:gravity="center"
-            android:text="El empleado fue agregado correctamente y recibirá un correo para activar su acceso." />
+            android:text="El empleado fue agregado correctamente. Ya puede entrar con su correo y la contraseña inicial." />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -89,7 +89,7 @@
                 <TextView
                     style="@style/Txt.Pill"
                     android:backgroundTint="@color/ok_bg"
-                    android:text="Invitación enviada"
+                    android:text="Activo"
                     android:textColor="@color/ok" />
             </LinearLayout>
         </LinearLayout>

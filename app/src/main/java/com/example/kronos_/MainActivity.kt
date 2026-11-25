@@ -8,6 +8,7 @@ import android.location.LocationManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.CompoundButton
@@ -260,15 +261,35 @@ class MainActivity : AppCompatActivity() {
         return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
+    /** Cómo se confirma la identidad con el teléfono. */
+    internal enum class IdentityMethod { ANY, SCREEN_LOCK, FINGERPRINT }
+
     /**
-     * Pide la huella, el rostro o el bloqueo de pantalla del teléfono. Si el teléfono no tiene ninguno,
-     * [continueIfUnavailable] decide si se sigue sin verificar (login) o se detiene (marcajes).
+     * Pide la huella, el rostro o el bloqueo de pantalla (patrón, PIN o contraseña) del teléfono.
+     * Si el teléfono no tiene el método pedido, [continueIfUnavailable] decide si se sigue sin
+     * verificar (login) o se detiene (marcajes).
      */
-    internal fun verifyIdentity(title: String, continueIfUnavailable: Boolean = false, onVerified: () -> Unit) {
-        val authenticators = BIOMETRIC_WEAK or DEVICE_CREDENTIAL
+    internal fun verifyIdentity(
+        title: String,
+        method: IdentityMethod = IdentityMethod.ANY,
+        continueIfUnavailable: Boolean = false,
+        onVerified: () -> Unit,
+    ) {
+        // Antes de Android 11 el bloqueo de pantalla no se puede pedir solo: se ofrece junto a la huella.
+        val screenLockOnly = Build.VERSION.SDK_INT >= Build.VERSION_CODES.R
+        val authenticators = when {
+            method == IdentityMethod.SCREEN_LOCK && screenLockOnly -> DEVICE_CREDENTIAL
+            method == IdentityMethod.FINGERPRINT -> BIOMETRIC_WEAK
+            else -> BIOMETRIC_WEAK or DEVICE_CREDENTIAL
+        }
+        val subtitle = when (method) {
+            IdentityMethod.SCREEN_LOCK -> "Usa el patrón, PIN o contraseña de tu teléfono"
+            IdentityMethod.FINGERPRINT -> "Apoya tu dedo en el sensor"
+            IdentityMethod.ANY -> "Usa tu huella, tu rostro o el bloqueo de pantalla"
+        }
         if (BiometricManager.from(this).canAuthenticate(authenticators) != BiometricManager.BIOMETRIC_SUCCESS) {
             if (continueIfUnavailable) {
-                showMessage("Este teléfono no tiene huella ni bloqueo de pantalla; se continúa sin esta verificación.")
+                showMessage("Este teléfono no tiene configurado ese método; se continúa sin esta verificación.")
                 return onVerified()
             }
             return showMessage("Configura una huella, un rostro o un bloqueo de pantalla en el teléfono para verificar tu identidad.")
@@ -285,8 +306,10 @@ class MainActivity : AppCompatActivity() {
         }
         val prompt = BiometricPrompt.PromptInfo.Builder()
             .setTitle(title)
-            .setSubtitle("Usa tu huella, tu rostro o el bloqueo de pantalla")
+            .setSubtitle(subtitle)
             .setAllowedAuthenticators(authenticators)
+            // Solo con huella Android exige un botón para cancelar; con el bloqueo de pantalla no se permite.
+            .apply { if (authenticators == BIOMETRIC_WEAK) setNegativeButtonText("Cancelar") }
             .build()
         BiometricPrompt(this, ContextCompat.getMainExecutor(this), callback).authenticate(prompt)
     }
