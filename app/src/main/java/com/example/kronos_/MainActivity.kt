@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
 
         // Administrador
         s.screen_dashboard to adminBar + mapOf(
-            v.sede to s.screen_sede_edit, v.report to s.screen_report,
+            v.sede to s.screen_sede_edit, v.report to s.screen_report, v.settings to s.screen_settings,
             v.stat1 to s.screen_admin_history, v.stat2 to s.screen_admin_history,
             v.stat3 to s.screen_alerts, v.stat4 to s.screen_admin_history,
         ),
